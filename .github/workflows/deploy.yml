@@ -13,12 +13,13 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Deploy via SFTP
+      - name: Deploy via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
           server: ${{ secrets.server }}
           username: ${{ secrets.username }}
           password: ${{ secrets.password }}
-          protocol: sftp
+          protocol: ftp
+          port: 21
           local-dir: ./
           remote-dir: /home/clients/56d3c6336f99048d3d9d7cdf4bbc2288/sites/eigentumer-check.ch/
