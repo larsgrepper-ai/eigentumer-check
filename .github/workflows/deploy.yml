@@ -21,4 +21,4 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           protocol: sftp
           local-dir: ./
-          remote-dir: /home/clients/56d3c6336f99048d3d9d7cdf4bbc2288/sites/xn--eigentmer-check-4vb.ch/
+          remote-dir: /home/clients/56d3c6336f99048d3d9d7cdf4bbc2288/sites/eigentumer-check.ch/
