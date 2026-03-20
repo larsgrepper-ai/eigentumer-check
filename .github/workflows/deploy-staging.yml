@@ -17,9 +17,10 @@ jobs:
       - name: Deploy via SFTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
-          server: ${{ secrets.FTP_HOST }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          protocol: sftp
+          server: ${{ secrets.server }}
+          username: ${{ secrets.username }}
+          password: ${{ secrets.password }}
+          protocol: ftp
+          port: 21
           local-dir: ./
-          remote-dir: /home/clients/56d3c6336f99048d3d9d7cdf4bbc2288/sites/staging.eigentümer-check.ch/
+          remote-dir: /home/clients/56d3c6336f99048d3d9d7cdf4bbc2288/sites/staging.eigentumer-check.ch/
