@@ -1,1 +1,70 @@
-<meta charset="UTF-8">
+<!DOCTYPE html>
+<html lang="de-CH">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tragbarkeits-Rechner Schweiz | Eigentümer-Check</title>
+  <meta name="description" content="Berechne in Minuten, ob deine Hypothek nach Schweizer Bankenstandard tragbar ist.">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    body { font-family:'Inter',sans-serif; margin:0; background:#F5F7FA; color:#0F1F2E; }
+    header { background:#10273F; color:white; padding:40px 24px; text-align:center; }
+    main { max-width:720px; margin:0 auto; padding:40px 24px 80px; }
+    form { background:white; border-radius:16px; padding:32px; box-shadow:0 15px 35px rgba(16,39,63,0.12); display:grid; gap:20px; }
+    label { font-weight:600; }
+    input { padding:12px 14px; border-radius:10px; border:1px solid #D5DDE5; font-size:1rem; }
+    button { border:none; background:#0D7FD8; color:white; padding:14px 18px; border-radius:999px; font-weight:600; cursor:pointer; }
+    .result { margin-top:32px; background:white; border-radius:16px; padding:24px; box-shadow:0 12px 30px rgba(16,39,63,0.1); }
+    .ok { color:#0E8A4F; }
+    .warn { color:#C13515; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Tragbarkeits-Rechner</h1>
+    <p>Berechne mit Schweizer Bankstandard (5% Belastung inkl. Unterhalt), ob deine Hypothek tragbar bleibt.</p>
+  </header>
+  <main>
+    <form id="calc-form">
+      <div>
+        <label for="income">Jahreseinkommen (netto) in CHF</label>
+        <input type="number" id="income" required placeholder="z.B. 120000">
+      </div>
+      <div>
+        <label for="mortgage">Hypothek / Darlehen in CHF</label>
+        <input type="number" id="mortgage" required placeholder="z.B. 750000">
+      </div>
+      <div>
+        <label for="rate">Kalkulatorischer Zinssatz</label>
+        <input type="number" id="rate" value="0.05" step="0.01">
+        <small>Standard: 5% (Zins + Unterhalt + Amortisation)</small>
+      </div>
+      <button type="submit">Tragbarkeit prüfen</button>
+    </form>
+    <div class="result" id="result" hidden></div>
+  </main>
+  <script>
+    const form = document.getElementById('calc-form');
+    const output = document.getElementById('result');
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const income = Number(document.getElementById('income').value);
+      const mortgage = Number(document.getElementById('mortgage').value);
+      const rate = Number(document.getElementById('rate').value || 0.05);
+      const annualCost = mortgage * rate;
+      const ratio = annualCost / income;
+      const limit = 0.33;
+      let html = `<p>Jährliche Belastung: <strong>${annualCost.toLocaleString('de-CH')} CHF</strong></p>`;
+      html += `<p>Belastungsquote: <strong>${(ratio*100).toFixed(1)}%</strong> (Grenze ${limit*100}%).</p>`;
+      if (ratio <= limit) {
+        html += '<p class="ok">Tragbarkeit erfüllt – Banken sollten die Hypothek bewilligen.</p>';
+      } else {
+        html += '<p class="warn">Tragbarkeit überschritten – senke die Hypothek oder erhöhe das Einkommen.</p>';
+      }
+      html += '<p>Tipp: Wir erstellen dir auf Anfrage eine detaillierte Budget- & Liquiditätsplanung.</p>';
+      output.innerHTML = html;
+      output.hidden = false;
+    });
+  </script>
+</body>
+</html>
