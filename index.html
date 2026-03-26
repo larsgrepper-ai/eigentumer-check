@@ -1,31 +1,308 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="de-CH">
 <head>
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-}})(window,document,'script','dataLayer','" + gtm_id_value + "');</script>
-<!-- End Google Tag Manager -->
-
-<title>eigentümer-check.ch</title>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
+  <!-- End Google Tag Manager -->
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eigentümer-Check | Klare Entscheidungen für Schweizer Immobilieneigentümer</title>
+  <meta name="description" content="Eigentümer-Check unterstützt Schweizer Wohneigentümer bei Pensionierung, Scheidung, Erbschaft und Verdichtung. Moderne Tools, Expertentipps und klare Handlungsoptionen.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: light;
+      --blue: #1D4E89;
+      --blue-light: #E8F1FB;
+      --gray: #6B7280;
+      --dark: #0B1D2A;
+      --accent: #00A3FF;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Helvetica Neue', sans-serif;
+      background: #F5F7FA;
+      color: var(--dark);
+      line-height: 1.6;
+    }
+    header {
+      background: linear-gradient(135deg, #0B1D2A, #123B63);
+      color: white;
+      padding: 32px 24px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    header::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 20% 20%, rgba(255,255,255,0.15), transparent 50%);
+      pointer-events: none;
+    }
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto 48px;
+    }
+    .nav a {
+      color: rgba(255,255,255,0.8);
+      text-decoration: none;
+      margin-left: 24px;
+      font-weight: 500;
+    }
+    .hero-content {
+      max-width: 640px;
+      z-index: 1;
+      position: relative;
+    }
+    h1 {
+      font-size: clamp(2.4rem, 4vw, 3.4rem);
+      margin-bottom: 16px;
+    }
+    .hero-subtext {
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.9);
+      margin-bottom: 32px;
+    }
+    .cta-group {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      border: none;
+      border-radius: 999px;
+      padding: 14px 28px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .btn-primary {
+      background: white;
+      color: var(--dark);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    }
+    .btn-secondary {
+      border: 1px solid rgba(255,255,255,0.4);
+      color: white;
+      background: transparent;
+    }
+    .btn:hover { transform: translateY(-1px); }
+    main { max-width: 1200px; margin: -48px auto 80px; padding: 0 24px; }
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+    }
+    .card {
+      background: white;
+      border-radius: 20px;
+      padding: 28px;
+      box-shadow: 0 20px 45px rgba(11,29,42,0.08);
+      border: 1px solid #EEF2F7;
+    }
+    .card h3 { margin-top: 0; }
+    .stat-bar {
+      display: flex;
+      gap: 24px;
+      margin: 40px 0;
+      flex-wrap: wrap;
+    }
+    .stat {
+      flex: 1;
+      min-width: 180px;
+      background: var(--blue-light);
+      border-radius: 16px;
+      padding: 20px;
+      color: var(--blue);
+      font-weight: 600;
+    }
+    .section-title { font-size: 2rem; margin-bottom: 12px; }
+    .section-subtitle { color: var(--gray); margin-bottom: 32px; }
+    .silo-card {
+      border-top: 4px solid var(--blue);
+    }
+    .silo-card ul { padding-left: 20px; color: var(--gray); }
+    .trust-list {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+      margin: 32px 0;
+      color: var(--gray);
+    }
+    footer {
+      background: var(--dark);
+      color: rgba(255,255,255,0.8);
+      padding: 48px 24px;
+    }
+    footer a { color: white; text-decoration: none; }
+    @media (max-width: 600px) {
+      .nav { flex-direction: column; gap: 16px; }
+      .stat-bar { flex-direction: column; }
+    }
+  </style>
 </head>
-
 <body>
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=" + gtm_id_value + ""
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  <header>
+    <div class="nav">
+      <strong>eigentümer-check.ch</strong>
+      <div>
+        <a href="#use-cases">Fälle</a>
+        <a href="#silos">Wissens-Silos</a>
+        <a href="#tools">Tools</a>
+        <a href="#contact">Kontakt</a>
+      </div>
+    </div>
+    <div class="hero-content">
+      <p class="badge">Schweizer Immobilien-Intelligence</p>
+      <h1>Klare Entscheidungen für Eigentümer in Wendepunkten.</h1>
+      <p class="hero-subtext">Wir führen Wohneigentümer durch Pensionierung, Scheidung, Erbschaft und Verdichtung – mit datenbasierter Analyse, Tools und persönlicher Guidance.</p>
+      <div class="cta-group">
+        <a class="btn btn-primary" href="#contact">Kostenlose Standortbestimmung</a>
+        <a class="btn btn-secondary" href="#silos">Wissensbibliothek öffnen</a>
+      </div>
+    </div>
+  </header>
 
+  <main>
+    <section class="stat-bar" id="use-cases">
+      <div class="stat">>2’000 Eigentümer begleitet</div>
+      <div class="stat">4 Fokus-Szenarien mit Spezialwissen</div>
+      <div class="stat">24h Reaktionszeit auf neue Anfragen</div>
+    </section>
 
-<h1></h1>
+    <section>
+      <h2 class="section-title">Deine Situation. Unsere Klarheit.</h2>
+      <p class="section-subtitle">Jede Lebenssituation erfordert andere Entscheidungen – wir liefern Entscheidungsgrundlagen, Steuer-Insights und Netzwerkpartner.</p>
+      <div class="card-grid">
+        <article class="card silo-card" id="silos">
+          <h3>Pensionierung</h3>
+          <p>Tragbarkeit nach AHV, Hypothekenstrategie, Liquidität.</p>
+          <ul>
+            <li>Tragbarkeitsrechner & Budget-Szenarien</li>
+            <li>Strategie „Verkaufen vs. Belehnung“</li>
+            <li>Checklisten für Banken & Steueramt</li>
+          </ul>
+          <a href="/silos/pensionierung/">Zur Pensionierungs-Seite →</a>
+        </article>
+        <article class="card silo-card">
+          <h3>Scheidung / Trennung</h3>
+          <p>Eigentum fair aufteilen, Finanzierung sichern.</p>
+          <ul>
+            <li>Bewertungsmodelle für Auskauf</li>
+            <li>Mediation & Rechtsrahmen erklärt</li>
+            <li>Liquiditäts- und Steuerfolgen</li>
+          </ul>
+          <a href="/silos/scheidung/">Zur Scheidungs-Seite →</a>
+        </article>
+        <article class="card silo-card">
+          <h3>Erbschaft / Nachlass</h3>
+          <p>Immobilien mit mehreren Erben ordnen.</p>
+          <ul>
+            <li>Vermögensaufteilung & Steuern</li>
+            <li>Optionen: Halten, Verkaufen, Vermieten</li>
+            <li>Vorbereitung öffentlichen Inventars</li>
+          </ul>
+          <a href="/silos/erbschaft/">Zur Erbschafts-Seite →</a>
+        </article>
+        <article class="card silo-card">
+          <h3>Baupotenzial & Verdichtung</h3>
+          <p>Dichte-Potenzial heben, Mehrfamilienprojekte planen.</p>
+          <ul>
+            <li>Zonen-Check & Mehrwertabgabe</li>
+            <li>Partnersuche für Entwicklung</li>
+            <li>Finanz- & Baukosten-Monitor</li>
+          </ul>
+          <a href="/silos/baupotenzial/">Zur Verdichtungs-Seite →</a>
+        </article>
+      </div>
+    </section>
 
-<h2>Eigentümer Check</h2>
-<p>Plattform für Immobilienentscheidungen.</p>
+    <section id="tools">
+      <h2 class="section-title">Tools & Services</h2>
+      <div class="card-grid">
+        <article class="card">
+          <h3>Tragbarkeits-Rechner</h3>
+          <p>Berechne in Minuten, ob deine Immobilie mit Renteneinkommen tragbar bleibt. Inklusive Hypo-Rolling und Unterhaltsbudget.</p>
+          <a href="/tools/tragbarkeit-rechner/">Tool öffnen →</a>
+        </article>
+        <article class="card">
+          <h3>Dokumenten-Check</h3>
+          <p>Upload-Funktion für Bewertungsberichte, Scheidungsvereinbarungen oder Grundbuchauszüge – wir liefern Handlungsempfehlungen.</p>
+        </article>
+        <article class="card">
+          <h3>Experten-Netzwerk</h3>
+          <p>Kuratiertes Netzwerk aus Treuhändern, Hypo-Spezialisten und Projektentwicklern in allen Kantonen.</p>
+        </article>
+      </div>
+    </section>
 
+    <section>
+      <h2 class="section-title">So arbeiten wir</h2>
+      <div class="card-grid">
+        <article class="card">
+          <h3>1. Standortanalyse</h3>
+          <p>Wir strukturieren deine Zahlen: Einkommen, Hypothek, Steuerfolgen.</p>
+        </article>
+        <article class="card">
+          <h3>2. Szenarien & Optionen</h3>
+          <p>Drei klare Optionen mit Vor-/Nachteilen und Zeithorizonten.</p>
+        </article>
+        <article class="card">
+          <h3>3. Umsetzung mit Partnern</h3>
+          <p>Wir verbinden dich mit Banken, Notaren, Entwicklern – alles aus einer Hand.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact" class="card" style="margin-top:40px;">
+      <h2 class="section-title">Direkt Kontakt aufnehmen</h2>
+      <p class="section-subtitle">15-Minuten-Kickoff mit einem Spezialisten. Kostenlos & unverbindlich.</p>
+      <form action="mailto:beratung@eigentumer-check.ch" method="post" enctype="text/plain" style="display:grid; gap:16px; max-width:520px;">
+        <input type="text" name="name" placeholder="Vor- und Nachname" required>
+        <input type="email" name="email" placeholder="E-Mail" required>
+        <textarea name="situation" rows="4" placeholder="Beschreibe kurz deine Situation" required></textarea>
+        <button class="btn btn-primary" type="submit">Rückruf anfordern</button>
+      </form>
+      <div class="trust-list">
+        <span>Telefon: +41 44 000 00 00</span>
+        <span>Standort: Zürich & Remote Schweizweit</span>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div style="max-width:1200px; margin:0 auto; display:flex; flex-wrap:wrap; gap:32px;">
+      <div>
+        <strong>eigentümer-check.ch</strong>
+        <p>Strategische Guidance für Wohneigentümer in entscheidenden Lebensphasen.</p>
+      </div>
+      <div>
+        <p><a href="/sitemap.xml">Sitemap</a></p>
+        <p><a href="/robots.txt">Robots</a></p>
+      </div>
+      <div>
+        <p>© 2026 Eigentümer-Check</p>
+      </div>
+    </div>
+  </footer>
 </body>
-
 </html>
