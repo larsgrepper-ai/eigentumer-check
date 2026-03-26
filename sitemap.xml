@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://eigentümer-check.ch/</loc>
-  </url>
+  <url><loc>https://www.eigentumer-check.ch/</loc></url>
+  <url><loc>https://www.eigentumer-check.ch/silos/pensionierung/</loc></url>
+  <url><loc>https://www.eigentumer-check.ch/silos/scheidung/</loc></url>
+  <url><loc>https://www.eigentumer-check.ch/silos/erbschaft/</loc></url>
+  <url><loc>https://www.eigentumer-check.ch/silos/baupotenzial/</loc></url>
+  <url><loc>https://www.eigentumer-check.ch/tools/tragbarkeit-rechner/</loc></url>
 </urlset>

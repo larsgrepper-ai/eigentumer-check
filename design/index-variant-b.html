@@ -3,49 +3,104 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Eigentümer-Check – Variante B</title>
+  <title>Eigentümer-Check – Variante B (Split Layout)</title>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
-    body { margin:0; font-family:'Space Grotesk',sans-serif; background:#FBFCFE; color:#0E1724; }
-    .layout { display:flex; min-height:100vh; }
-    aside { width:320px; background:#0B1D2A; color:white; padding:40px 32px; position:sticky; top:0; height:100vh; overflow:auto; }
-    main { flex:1; padding:40px; }
-    nav a { display:block; color:rgba(255,255,255,0.8); margin-bottom:12px; text-decoration:none; }
-    section { margin-bottom:48px; }
-    .card { background:white; border-radius:18px; padding:28px; box-shadow:0 15px 30px rgba(8,19,34,0.08); }
-    .dual { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:24px; }
+    body { margin:0; font-family:'Space Grotesk',sans-serif; background:#F9FAFD; color:#0E1724; }
+    .frame { display:flex; min-height:100vh; }
+    aside { width:330px; background:#0B1D2A; color:white; padding:48px 32px; position:sticky; top:0; height:100vh; display:flex; flex-direction:column; gap:32px; }
+    aside nav a { display:block; color:rgba(255,255,255,0.75); text-decoration:none; margin-bottom:12px; }
+    main { flex:1; padding:48px; display:flex; flex-direction:column; gap:40px; }
+    section { background:white; border-radius:24px; padding:32px; box-shadow:0 20px 50px rgba(11,29,42,0.12); }
+    .grid { display:grid; gap:24px; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); }
+    .badge { text-transform:uppercase; letter-spacing:0.2em; font-size:0.8rem; color:#5CC8FF; }
+    .lead { font-size:1.05rem; color:#4A5568; }
+    .stat { font-size:2rem; font-weight:600; }
+    .stat-label { color:#6B7280; }
   </style>
 </head>
 <body>
-  <div class="layout">
+  <div class="frame">
     <aside>
-      <h1>eigentümer-check</h1>
-      <p>Immobilien-Entscheide, Schweizer Präzision.</p>
+      <div>
+        <h1>eigentümer-check</h1>
+        <p>Live Analytics & Guidance für Eigentümer.</p>
+      </div>
       <nav>
         <a href="#leads">Live-Leads</a>
-        <a href="#cases">Fokus-Fälle</a>
+        <a href="#cases">Lebenssituationen</a>
         <a href="#services">Services</a>
-        <a href="#contact">Kontakt</a>
+        <a href="#cta">Kontakt</a>
       </nav>
-      <p>Telefon +41 44 000 00 00<br>beratung@eigentumer-check.ch</p>
+      <div>
+        <p>Telefon +41 44 000 00 00</p>
+        <p>beratung@eigentumer-check.ch</p>
+      </div>
     </aside>
     <main>
-      <section class="dual">
-        <div class="card">
-          <h2>Sofort-Lead</h2>
-          <p>EFH Dietlikon – Pensionierung in 12 Monaten, Hypothek 650k CHF. Bedarf: Tragbarkeit & Hypo-Staffelung.</p>
-        </div>
-        <div class="card">
-          <h2>Tool-Access</h2>
-          <p>Tragbarkeits-Rechner & Dokumenten-Upload direkt hier integrieren.</p>
+      <section id="leads">
+        <p class="badge">Live-Leads</p>
+        <h2>Aktuelle Fälle aus der Pipeline</h2>
+        <div class="grid">
+          <article>
+            <h3>Dietlikon, ZH</h3>
+            <p class="lead">Pensionierung 2027, Hypothek 640k, Einkommen 120k. Bedarf: Tragbarkeit & Hypo-Staffelung.</p>
+          </article>
+          <article>
+            <h3>Bern, BE</h3>
+            <p class="lead">Erbengemeinschaft (3 Geschwister). Marktwert 1.6 Mio., Entscheid Vermietung vs. Verkauf.</p>
+          </article>
+          <article>
+            <h3>Lausanne, VD</h3>
+            <p class="lead">Verdichtungsprojekt in Wohnzone W2 – Mehrwertabgabe & Partner-Suche.</p>
+          </article>
         </div>
       </section>
       <section id="cases">
-        <h2>Cases</h2>
-        <div class="dual">
-          <div class="card"><h3>Pensionierung</h3><p>...</p></div>
-          <div class="card"><h3>Scheidung</h3><p>...</p></div>
+        <h2>4 Szenarien, 1 Plattform</h2>
+        <div class="grid">
+          <div>
+            <div class="stat">#1</div>
+            <p class="stat-label">Pensionierung</p>
+            <p>Tragbarkeit, Hypothek, Liquidität.</p>
+          </div>
+          <div>
+            <div class="stat">#2</div>
+            <p class="stat-label">Scheidung</p>
+            <p>Bewertung, Auskauf, Rechtsrahmen.</p>
+          </div>
+          <div>
+            <div class="stat">#3</div>
+            <p class="stat-label">Erbschaft</p>
+            <p>Nachlass, Steuern, Vermarktung.</p>
+          </div>
+          <div>
+            <div class="stat">#4</div>
+            <p class="stat-label">Baupotenzial</p>
+            <p>Zonenplan, Mehrwertabgabe, Entwicklung.</p>
+          </div>
         </div>
+      </section>
+      <section id="services">
+        <h2>Services & Tools</h2>
+        <div class="grid">
+          <div>
+            <h3>Tragbarkeits-Engine</h3>
+            <p>Stress-Tests mit Hypo-Szenarien.</p>
+          </div>
+          <div>
+            <h3>Document Upload</h3>
+            <p>Sichere Analyse von Grundbuch & Verträgen.</p>
+          </div>
+          <div>
+            <h3>Partner-Matching</h3>
+            <p>TU, Architekten, Käufer – pro Kanton.</p>
+          </div>
+        </div>
+      </section>
+      <section id="cta">
+        <h2>Bereit für die Entscheidung?</h2>
+        <p class="lead">15-Minuten-Call → klarer Fahrplan.</p>
       </section>
     </main>
   </div>
