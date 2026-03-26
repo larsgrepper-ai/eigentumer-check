@@ -1,136 +1,134 @@
 <!DOCTYPE html>
 <html lang="de-CH">
 <head>
-  <!-- Google Tag Manager -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
-  <!-- End Google Tag Manager -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Eigentümer-Check | Entscheidungsplattform für Schweizer Eigentümer</title>
-  <meta name="description" content="Wir begleiten Schweizer Wohneigentümer bei Pensionierung, Scheidung, Erbschaft und Verdichtung – mit Daten, Tools und Expertennetzwerk.">
+  <title>Eigentümer-Check | Wir prüfen – Sie profitieren</title>
+  <meta name="description" content="Eigentümer-Check ist das Schweizer Kompetenzzentrum für Wohneigentümer in Pensionierung, Scheidung, Erbschaft und Verdichtung. Wir prüfen und liefern klare Handlungsempfehlungen.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    :root{color-scheme:light;--dark:#0B1D2A;--blue:#184A78;--muted:#6B7280;--accent:#00A3FF;--bg:#F5F7FA;}
+    :root {
+      --bg:#F5F7FB;
+      --dark:#0A1C2D;
+      --blue:#123A69;
+      --gold:#C89B3C;
+      --muted:#6B7280;
+      --card:#FFFFFF;
+      --shadow:0 25px 60px rgba(10,28,45,0.1);
+    }
     *{box-sizing:border-box;}
-    body{margin:0;font-family:'Inter','Helvetica Neue',sans-serif;background:var(--bg);color:var(--dark);line-height:1.7;}
-    header{background:linear-gradient(140deg,#0B1D2A,#123B63);color:white;padding:32px 24px 90px;position:relative;overflow:hidden;}
-    header::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 15% 20%,rgba(255,255,255,0.2),transparent 55%);}
-    .nav{display:flex;justify-content:space-between;align-items:center;max-width:1200px;margin:0 auto 48px;position:relative;z-index:1;}
+    body{margin:0;font-family:'Inter',sans-serif;background:var(--bg);color:var(--dark);line-height:1.7;}
+    header{background:linear-gradient(130deg,#0A1C2D,#123A69);color:white;padding:28px 24px 90px;overflow:hidden;}
+    .nav{max-width:1200px;margin:0 auto 36px;display:flex;justify-content:space-between;align-items:center;}
     .nav a{color:rgba(255,255,255,0.85);text-decoration:none;margin-left:20px;font-weight:500;}
-    .hero-content{max-width:640px;position:relative;z-index:1;}
-    h1{font-size:clamp(2.6rem,4vw,3.6rem);margin:0 0 18px;}
-    .hero-subtext{font-size:1.15rem;color:rgba(255,255,255,0.85);margin-bottom:32px;}
-    .cta-group{display:flex;gap:16px;flex-wrap:wrap;}
-    .btn{border:none;border-radius:999px;padding:14px 28px;font-size:1rem;font-weight:600;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;transition:transform .2s,box-shadow .2s;}
-    .btn-primary{background:white;color:var(--dark);box-shadow:0 12px 30px rgba(0,0,0,0.15);}
-    .btn-secondary{border:1px solid rgba(255,255,255,0.6);color:white;background:transparent;}
+    .hero{max-width:1100px;margin:0 auto;display:grid;gap:32px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));position:relative;z-index:1;}
+    h1{font-size:clamp(2.5rem,4vw,3.6rem);margin-bottom:16px;}
+    .btn{display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:14px 28px;font-weight:600;cursor:pointer;text-decoration:none;font-size:1rem;gap:8px;transition:transform .2s,box-shadow .2s;}
+    .btn-primary{background:white;color:var(--dark);box-shadow:0 15px 40px rgba(0,0,0,0.2);}
+    .btn-secondary{border:1px solid rgba(255,255,255,0.6);color:white;}
     .btn:hover{transform:translateY(-2px);}
-    main{max-width:1200px;margin:-60px auto 80px;padding:0 24px;display:flex;flex-direction:column;gap:32px;}
-    .card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;}
-    .card{background:white;border-radius:24px;padding:28px;box-shadow:0 20px 45px rgba(11,29,42,0.08);border:1px solid #EEF2F7;}
-    .stat-bar{display:flex;gap:24px;flex-wrap:wrap;}
-    .stat{flex:1;min-width:200px;border-radius:18px;padding:22px;background:#E8F1FB;color:var(--blue);font-weight:600;}
-    .section-title{font-size:2rem;margin-bottom:12px;}
-    .section-subtitle{color:var(--muted);margin-bottom:32px;}
-    .testimonial{background:#0F1F32;color:white;border-radius:24px;padding:32px;display:flex;flex-direction:column;gap:12px;}
-    footer{background:var(--dark);color:rgba(255,255,255,0.8);padding:48px 24px;}
+    main{max-width:1200px;margin:-60px auto 80px;padding:0 24px;display:flex;flex-direction:column;gap:40px;}
+    .card{background:var(--card);border-radius:28px;padding:32px;box-shadow:var(--shadow);}
+    .grid{display:grid;gap:24px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));}
+    .section-title{font-size:2.2rem;margin-bottom:12px;}
+    .section-subtitle{color:var(--muted);margin-bottom:28px;}
+    .badge{display:inline-flex;align-items:center;padding:6px 14px;border-radius:999px;background:rgba(255,255,255,0.2);text-transform:uppercase;letter-spacing:0.2em;font-size:.75rem;margin-bottom:12px;}
+    .tool-card{border:1px solid rgba(18,58,105,0.15);cursor:pointer;transition:transform .2s,box-shadow .2s;}
+    .tool-card:hover{transform:translateY(-4px);box-shadow:0 25px 50px rgba(10,28,45,0.12);}
+    footer{background:var(--dark);color:rgba(255,255,255,0.85);padding:48px 24px;}
+    footer a{color:white;text-decoration:none;}
+    @media(max-width:640px){.nav{flex-direction:column;gap:16px;}header{padding-bottom:70px;}}
   </style>
 </head>
 <body>
-  <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
   <header>
     <div class="nav">
       <strong>eigentümer-check.ch</strong>
       <div>
-        <a href="#use-cases">Fälle</a>
-        <a href="#silos">Wissens-Silos</a>
-        <a href="#signals">Signals</a>
+        <a href="#pain">Warum wir</a>
+        <a href="#competence">Kompetenzzentren</a>
+        <a href="#tools">Tools</a>
         <a href="#contact">Kontakt</a>
       </div>
     </div>
-    <div class="hero-content">
-      <p class="badge">Schweizer Immobilien-Intelligence</p>
-      <h1>Wir bringen Ordnung in Eigentümer-Entscheide.</h1>
-      <p class="hero-subtext">Pensionierung, Scheidung, Erbschaft oder Verdichtung – wir liefern klare Optionen, Tools und Netzwerkpartner.</p>
-      <div class="cta-group">
-        <a class="btn btn-primary" href="#contact">Kostenlose Standortbestimmung</a>
-        <a class="btn btn-secondary" href="#silos">Wissensbibliothek öffnen</a>
+    <div class="hero">
+      <div>
+        <p class="badge">Wir prüfen – Sie profitieren</p>
+        <h1>Die Entscheidungsplattform für Schweizer Eigentümer.</h1>
+        <p>Wir analysieren Tragbarkeit, Steuern, Rechtsrahmen und Potenzial deines Wohneigentums – schnell, präzise, vertraulich.</p>
+        <div style="display:flex;gap:14px;flex-wrap:wrap;">
+          <a class="btn btn-primary" href="#contact">Standortbestimmung buchen</a>
+          <a class="btn btn-secondary" href="#competence">Kompetenzzentren ansehen</a>
+        </div>
+      </div>
+      <div class="card" style="background:white;color:var(--dark);">
+        <h3>Aktuelle Fälle</h3>
+        <ul style="list-style:none;padding:0;margin:0;color:var(--muted);">
+          <li><strong>Dietlikon</strong> · Pensionierung · Hypothek 640k CHF</li>
+          <li><strong>Bern</strong> · Erbengemeinschaft · Nettoerlös-Berechnung</li>
+          <li><strong>Lausanne</strong> · Verdichtung W2 · Mehrwertabgabe</li>
+        </ul>
       </div>
     </div>
   </header>
   <main>
-    <section class="stat-bar" id="use-cases">
-      <div class="stat">>2’000 Eigentümer begleitet</div>
-      <div class="stat">4 Fokus-Szenarien</div>
-      <div class="stat">24h Reaktionszeit</div>
-    </section>
-    <section>
-      <h2 class="section-title">Deine Situation, unsere Lösung</h2>
-      <p class="section-subtitle">Jede Lebenssituation benötigt andere Expertise. Wir bündeln Analysen, Automationen und Spezialisten je Silo.</p>
-      <div class="card-grid" id="silos">
-        <article class="card">
-          <h3>Pensionierung</h3>
-          <p>Tragbarkeit, Hypothek, Liquidität.</p>
-          <a href="/silos/pensionierung/">Zur Seite →</a>
-        </article>
-        <article class="card">
-          <h3>Scheidung</h3>
-          <p>Bewertung, Auskauf, Rechtsrahmen.</p>
-          <a href="/silos/scheidung/">Zur Seite →</a>
-        </article>
-        <article class="card">
-          <h3>Erbschaft</h3>
-          <p>Nachlass, Steuern, Vermarktung.</p>
-          <a href="/silos/erbschaft/">Zur Seite →</a>
-        </article>
-        <article class="card">
-          <h3>Baupotenzial</h3>
-          <p>Zonenplan, Mehrwertabgabe, Partner.</p>
-          <a href="/silos/baupotenzial/">Zur Seite →</a>
-        </article>
-      </div>
-    </section>
-    <section id="signals">
-      <h2 class="section-title">Signal-Layer</h2>
+    <section id="pain">
+      <h2 class="section-title">Typische Blocker – wir räumen sie weg</h2>
       <div class="card-grid">
-        <article class="card"><h3>Live-Leads</h3><p>Monitoring von Baugesuchen, Zonenplanänderungen und Distressed Cases.</p></article>
-        <article class="card"><h3>Tools</h3><p>Tragbarkeits-Rechner, Dokumenten-Check, Szenario-Builder.</p></article>
-        <article class="card"><h3>Partnernetz</h3><p>TU, Treuhänder, Hypo-Spezialisten – lokal pro Kanton.</p></article>
+        <article class="card"><h3>Keine Klarheit bei Zahlen</h3><p>Tragbarkeit, Liquidität, Steuern – wir liefern sofort nutzbare Simulationen.</p></article>
+        <article class="card"><h3>Unsicherer Rechtsrahmen</h3><p>Scheidung, Erbschaft, Mehrwertabgabe – wir arbeiten mit spezialisierten Partnern.</p></article>
+        <article class="card"><h3>Fehlende Zeit</h3><p>Wir bündeln Dokumente, sprechen mit Banken und koordinieren Termine.</p></article>
       </div>
     </section>
-    <section>
-      <h2 class="section-title">Testimonials</h2>
-      <div class="testimonial">
-        <p>“Wir haben innert zwei Wochen Klarheit über unsere Pensionierungsstrategie gewonnen – inklusive Banktermin.”</p>
-        <small>Brigitte & Thomas, Zürich</small>
+    <section id="competence">
+      <h2 class="section-title">Kompetenzzentren</h2>
+      <p class="section-subtitle">Vier dedizierte Teams mit jeweils eigener Methodik.</p>
+      <div class="card-grid">
+        <article class="card"><h3>Pensionierung</h3><p>Tragbarkeit & Hypothekenstrategie.</p><a href="/silos/pensionierung/">Mehr erfahren →</a></article>
+        <article class="card"><h3>Scheidung</h3><p>Bewertung, Auskauf, Mediation.</p><a href="/silos/scheidung/">Mehr erfahren →</a></article>
+        <article class="card"><h3>Erbschaft</h3><p>Nachlass, Steuern, Verkauf.</p><a href="/silos/erbschaft/">Mehr erfahren →</a></article>
+        <article class="card"><h3>Baupotenzial</h3><p>Zonenplan, Mehrwertabgabe, JV.</p><a href="/silos/baupotenzial/">Mehr erfahren →</a></article>
       </div>
     </section>
-    <section id="contact" class="card" style="margin-top:20px;">
-      <h2 class="section-title">Direkt Kontakt aufnehmen</h2>
-      <p class="section-subtitle">15-Minuten-Call mit einem Spezialisten.</p>
-      <form action="mailto:beratung@eigentumer-check.ch" method="post" enctype="text/plain" style="display:grid;gap:16px;max-width:520px;">
+    <section id="tools">
+      <h2 class="section-title">Werkzeuge & Services</h2>
+      <div class="grid">
+        <article class="card tool-card" onclick="location.href='/tools/tragbarkeit-rechner/'">
+          <h3>Tragbarkeits-Rechner</h3>
+          <p>Stress-Test nach Bankenstandard – starte Tool →</p>
+        </article>
+        <article class="card tool-card" onclick="location.href='/tools/dokumenten-check/'">
+          <h3>Dokumenten-Check</h3>
+          <p>Sicherer Upload, Analyse innert 48h →</p>
+        </article>
+        <article class="card tool-card" onclick="location.href='/silos/baupotenzial/'">
+          <h3>Baupotenzial-Scan</h3>
+          <p>Volumenstudie & Renditemodell →</p>
+        </article>
+      </div>
+    </section>
+    <section class="card" style="background:#0A1C2D;color:white;">
+      <h2 class="section-title">Bekannt aus</h2>
+      <p>Platzhalter für Medien-Logos (SRF, Handelszeitung, Immobilien Business).</p>
+    </section>
+    <section id="contact" class="card">
+      <h2 class="section-title">Kontakt</h2>
+      <p class="section-subtitle">kontakt@eigentumer-check.ch · Tel. +41 79 270 04 46</p>
+      <form action="mailto:kontakt@eigentumer-check.ch" method="post" enctype="text/plain" style="display:grid;gap:16px;max-width:520px;">
         <input type="text" name="name" placeholder="Vor- und Nachname" required>
         <input type="email" name="email" placeholder="E-Mail" required>
         <textarea name="situation" rows="4" placeholder="Beschreibe kurz deine Situation" required></textarea>
         <button class="btn btn-primary" type="submit">Rückruf anfordern</button>
       </form>
-      <div style="margin-top:24px;color:var(--muted);">Telefon +41 44 000 00 00 · Zürich & Remote</div>
     </section>
   </main>
   <footer>
     <div style="max-width:1200px;margin:0 auto;display:flex;flex-wrap:wrap;gap:32px;">
-      <div><strong>eigentümer-check.ch</strong><p>Strategische Guidance für Wohneigentümer.</p></div>
+      <div><strong>Eigentümer-Check</strong><p>Bergstrasse 40, 6410 Goldau<br>E-Mail: kontakt@eigentumer-check.ch<br>Tel: +41 79 270 04 46</p></div>
       <div><p><a href="/sitemap.xml">Sitemap</a></p><p><a href="/robots.txt">Robots</a></p></div>
-      <div><p>© 2026 Eigentümer-Check</p></div>
+      <div><p>© 2026 Eigentümer-Check – Lars Grepper</p></div>
     </div>
   </footer>
 </body>
