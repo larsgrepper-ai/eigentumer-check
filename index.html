@@ -10,7 +10,237 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/styles/theme.css">
   <!-- Google Tag Manager -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-M7JNHTLN');</script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    const WEBHOOK_URL = 'https://hooks.make.com/eigentumer-check-placeholder';
+    const EMAIL_ENDPOINT = '/form-handler.php';
+
+    const flowConfigs = {
+      tragbarkeit: {
+        silo: 'Silo_Pensionierung',
+        event: 'tragbarkeit',
+        compute: (values) => {
+          const income = Number(values.income) || 0;
+          const loan = Number(values.loan) || 0;
+          const rate = Number(values.rate) || 0;
+          const living = Number(values.living) || 0;
+          const interest = loan * (rate / 100);
+          const amort = loan * 0.01;
+          const total = interest + amort + living;
+          const ratio = income ? (total / income) * 100 : 0;
+          let verdict = 'Gelb – Alternativen prüfen.';
+          if (ratio < 33) verdict = 'Grün – bankfähig.';
+          else if (ratio >= 38) verdict = 'Rot – Zusatzsicherheiten.';
+          return {
+            message: `Kosten CHF ${total.toLocaleString('de-CH')} · Quote ${ratio.toFixed(1)}% · ${verdict}`,
+            meta: { ratio: Number(ratio.toFixed(1)) }
+          };
+        }
+      },
+      verdichtung: {
+        silo: 'Silo_Verdichtung',
+        event: 'verdichtung',
+        compute: (values) => {
+          const plot = Number(values.plot) || 0;
+          const factor = Number(values.factor) || 0;
+          const zone = values.zone || 'W2';
+          const base = plot * factor;
+          const zoneBonus = zone === 'W3' ? 1.2 : zone === 'Kern' ? 1.35 : zone === 'Zentrum' ? 1.5 : 1;
+          const potential = base * zoneBonus;
+          const label = potential > 600 ? 'Hoher Score – Machbarkeitsstudie starten.' : 'Machbarkeitsstudie empfohlen.';
+          return {
+            message: `Zusatzvolumen ca. ${potential.toFixed(0)} m² · ${label}`,
+            meta: { potential: Number(potential.toFixed(0)), zone }
+          };
+        }
+      }
+    };
+
+    initCalcFlows();
+    initScheidungCalc();
+    initForms();
+
+    function initCalcFlows() {
+      document.querySelectorAll('[data-flow]').forEach(flow => {
+        const id = flow.dataset.flow;
+        const config = flowConfigs[id];
+        if (!config) return;
+        const steps = flow.querySelectorAll('[data-step]');
+        const progressBar = flow.querySelector('[data-progress]');
+        const statusLabel = flow.querySelector('[data-progress-label]');
+        const messageEl = flow.querySelector('[data-flow-message]');
+        const resultEl = flow.querySelector('[data-result]');
+        const emailInput = flow.querySelector('[data-email]');
+        const values = {};
+        let current = 0;
+        let latestMessage = '';
+        updateView();
+
+        flow.addEventListener('click', async e => {
+          if (e.target.matches('[data-forward]')) {
+            e.preventDefault();
+            if (!captureInputs(steps[current], values, messageEl)) return;
+            if (current < steps.length - 1) {
+              current++;
+              updateView();
+            }
+          }
+          if (e.target.matches('[data-back]')) {
+            e.preventDefault();
+            if (current > 0) {
+              current--;
+              updateView();
+            }
+          }
+          if (e.target.matches('[data-submit]')) {
+            e.preventDefault();
+            if (!emailInput.value.trim()) {
+              if (messageEl) messageEl.textContent = 'Bitte E-Mail eingeben.';
+              emailInput.focus();
+              return;
+            }
+            const payload = {
+              type: 'calc_lead',
+              flow: id,
+              silo: config.silo,
+              timestamp: new Date().toISOString(),
+              values,
+              result: latestMessage,
+              email: emailInput.value.trim()
+            };
+            if (messageEl) messageEl.textContent = 'Sende Dossier...';
+            const [webhookOk, mailOk] = await Promise.all([
+              postJSON(WEBHOOK_URL, payload),
+              postJSON(EMAIL_ENDPOINT, payload)
+            ]);
+            if (webhookOk || mailOk) {
+              if (messageEl) messageEl.textContent = 'Danke – das Dossier ist auf dem Weg.';
+              window.dataLayer.push({ event: 'pdf_requested', focus: `Calc_${id}` });
+              emailInput.value = '';
+            } else {
+              if (messageEl) messageEl.textContent = 'Webhook/Mail nicht erreichbar – bitte telefonisch melden.';
+            }
+          }
+        });
+
+        function updateView() {
+          steps.forEach((step, index) => step.classList.toggle('active', index === current));
+          if (progressBar) progressBar.style.width = `${((current + 1) / steps.length) * 100}%`;
+          if (statusLabel) {
+            const label = current === steps.length - 1 ? 'Analyse bereit' : 'Analyse läuft';
+            statusLabel.textContent = `Schritt ${current + 1}/${steps.length} · ${label}`;
+          }
+          if (messageEl) messageEl.textContent = '';
+          if (current === steps.length - 1) {
+            const outcome = config.compute(values);
+            latestMessage = outcome.message;
+            if (resultEl && latestMessage) resultEl.textContent = latestMessage;
+            if (config.event && outcome.meta) {
+              window.dataLayer.push({ event: 'calculator_step_completed', calculator: config.event, ...outcome.meta });
+            }
+          }
+        }
+      });
+    }
+
+    function captureInputs(step, values, messageEl) {
+      const fields = step.querySelectorAll('[data-field]');
+      for (const field of fields) {
+        const key = field.dataset.field;
+        const raw = field.type === 'number' ? Number(field.value) : field.value;
+        if (field.hasAttribute('required') && (raw === '' || raw === null || (field.type === 'number' && Number.isNaN(raw)))) {
+          if (messageEl) messageEl.textContent = 'Bitte alle Felder ausfüllen.';
+          field.focus();
+          return false;
+        }
+        values[key] = raw;
+      }
+      return true;
+    }
+
+    function initScheidungCalc() {
+      const btn = document.getElementById('calcScheidung');
+      const resultEl = document.getElementById('scheidungResult');
+      if (!btn) return;
+      btn.addEventListener('click', () => {
+        const value = Number(document.getElementById('value').value) || 0;
+        const debt = Number(document.getElementById('debt').value) || 0;
+        const share = Number(document.getElementById('share').value) || 0;
+        const equity = value - debt;
+        const payout = equity * (share / 100);
+        resultEl.textContent = `Eigenkapital CHF ${equity.toLocaleString('de-CH')} · Ausgleich A: CHF ${payout.toLocaleString('de-CH')}`;
+        resultEl.classList.add('show');
+        window.dataLayer.push({ event: 'calculator_step_completed', calculator: 'scheidung', equity });
+      });
+    }
+
+    async function postJSON(url, payload) {
+      try {
+        const res = await fetch(url, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
+        return res.ok;
+      } catch {
+        return false;
+      }
+    }
+
+    function initForms() {
+      const leadForm = document.getElementById('leadForm');
+      const leadMessage = document.getElementById('leadMessage');
+      if (leadForm) {
+        leadForm.addEventListener('submit', async e => {
+          e.preventDefault();
+          const formData = Object.fromEntries(new FormData(leadForm).entries());
+          const payload = { type: 'pdf_request', ...formData, silo: `Silo_${formData.fokus}`, timestamp: new Date().toISOString() };
+          const [webhookOk, mailOk] = await Promise.all([
+            postJSON(WEBHOOK_URL, payload),
+            postJSON(EMAIL_ENDPOINT, payload)
+          ]);
+          if (webhookOk || mailOk) {
+            leadMessage.textContent = 'PDF unterwegs – Posteingang prüfen.';
+            window.dataLayer.push({ event: 'pdf_requested', focus: formData.fokus });
+            leadForm.reset();
+          } else {
+            leadMessage.textContent = 'Momentan keine Verbindung – bitte telefonisch melden.';
+          }
+        });
+      }
+
+      const contactForm = document.getElementById('contactForm');
+      const contactMessage = document.getElementById('contactMessage');
+      const step1 = document.getElementById('step1');
+      const step2 = document.getElementById('step2');
+      if (contactForm) {
+        contactForm.addEventListener('submit', async e => {
+          e.preventDefault();
+          const caseType = document.getElementById('caseType').value;
+          const payload = {
+            type: 'lead',
+            caseType,
+            timeline: document.getElementById('timeline').value,
+            name: document.getElementById('name').value,
+            email: document.getElementById('email').value,
+            tel: document.getElementById('tel').value,
+            message: document.getElementById('message').value,
+            silo: `Silo_${caseType}`,
+            timestamp: new Date().toISOString()
+          };
+          const [webhookOk, mailOk] = await Promise.all([
+            postJSON(WEBHOOK_URL, payload),
+            postJSON(EMAIL_ENDPOINT, payload)
+          ]);
+          if (webhookOk || mailOk) {
+            contactMessage.textContent = 'Danke. Wir melden uns telefonisch.';
+            contactForm.reset();
+            step1.classList.remove('active');
+            step2.classList.add('active');
+            window.dataLayer.push({ event: 'lead_generated', caseType: payload.caseType, timeline: payload.timeline });
+          } else {
+            contactMessage.textContent = 'Webhook & Mailer nicht erreichbar – bitte +41 79 270 04 46 wählen.';
+          }
+        });
+      }
+    }
+  </script>
   <!-- End Google Tag Manager -->
 </head>
 <body>
@@ -110,23 +340,63 @@
       </div>
     </section>
 
+
+
+    <section class="section" id="experte">
+      <div class="container">
+        <div class="expert-card">
+          <div class="span-5">
+            <div class="portrait-placeholder"><span>Portrait Lars Grepper (Platzhalter)</span></div>
+          </div>
+          <div class="span-7">
+            <h2 class="section-title">Ihr Experte für Schweizer Immobilienfragen</h2>
+            <p class="section-subtitle">Lars Grepper steht als Name für Unabhängigkeit, Diskretion und kantonale Präzision. Jede Analyse wird von ihm verantwortet und bleibt auf die Regionen SZ, ZG, LU und ZH fokussiert.</p>
+            <ul class="clean">
+              <li><strong>Unabhängigkeit:</strong> Keine Kickbacks, keine versteckten Interessen – einzig Fakten.</li>
+              <li><strong>Diskretion:</strong> Verschlüsselte Datenräume, Zugriff nur für das Case-Team.</li>
+              <li><strong>Kantonale Präzision:</strong> Wir sprechen mit Steuerämtern, Bauämtern und Banken in deren Sprache.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="section" id="interactive">
       <div class="container">
         <h2 class="section-title">Instrumente</h2>
         <p class="section-subtitle">Keine Spielereien. Laborgenaue Rechner, die DataLayer-Ereignisse auslösen und direkt in ein PDF-Dossier führen.</p>
         <div class="layout-grid grid-gap">
-          <article class="instrument span-4" aria-label="Tragbarkeit">
-            <h3>Tragbarkeit-Labor</h3>
-            <label for="income">Netto-Rente (CHF)</label>
-            <input type="number" id="income" value="78000" inputmode="numeric">
-            <label for="loan">Hypothek (CHF)</label>
-            <input type="number" id="loan" value="640000" inputmode="numeric">
-            <label for="rate">Zinsannahme (%)</label>
-            <input type="number" id="rate" value="5" step="0.1">
-            <label for="living">Lebenshaltung (CHF)</label>
-            <input type="number" id="living" value="18000" inputmode="numeric">
-            <button class="btn btn-primary" id="calcTragbarkeit" type="button">Berechnen</button>
-            <p id="tragbarkeitResult" class="result">Bereit.</p>
+          <article class="instrument span-4" data-flow="tragbarkeit" aria-label="Tragbarkeit">
+            <div class="flow-progress"><div class="flow-progress-bar" data-progress></div></div>
+            <p class="flow-status" data-progress-label>Schritt 1/3 · Analyse läuft</p>
+            <p class="flow-message" data-flow-message></p>
+            <div class="flow-step active" data-step="1">
+              <p>Wie hoch ist Ihre jährliche Netto-Rente?</p>
+              <input type="number" data-field="income" required value="78000" inputmode="numeric" placeholder="Netto-Rente CHF">
+              <p>Wie hoch ist die aktuelle Hypothek?</p>
+              <input type="number" data-field="loan" required value="640000" inputmode="numeric" placeholder="Hypothek CHF">
+              <div class="flow-buttons">
+                <button class="btn btn-primary" data-forward>Weiter</button>
+              </div>
+            </div>
+            <div class="flow-step" data-step="2">
+              <p>Mit welchem Zinssatz und Lebenshaltung rechnen wir?</p>
+              <input type="number" data-field="rate" required value="5" step="0.1" placeholder="Zins %">
+              <input type="number" data-field="living" required value="18000" inputmode="numeric" placeholder="Lebenshaltung CHF">
+              <div class="flow-buttons">
+                <button class="btn btn-secondary" data-back>Zurück</button>
+                <button class="btn btn-primary" data-forward>Analyse</button>
+              </div>
+            </div>
+            <div class="flow-step" data-step="3">
+              <p class="flow-result" data-result>Analyse bereit.</p>
+              <p>Ihr individuelles Dossier ist bereit. Wohin sollen wir es senden?</p>
+              <input type="email" data-email placeholder="E-Mail">
+              <div class="flow-buttons">
+                <button class="btn btn-secondary" data-back>Zurück</button>
+                <button class="btn btn-primary" data-submit>Dossier senden</button>
+              </div>
+            </div>
           </article>
           <article class="instrument span-4" aria-label="Scheidungs-Ausgleich">
             <h3>Scheidungs-Ausgleich</h3>
@@ -139,21 +409,40 @@
             <button class="btn btn-primary" id="calcScheidung" type="button">Berechnen</button>
             <p id="scheidungResult" class="result">Output</p>
           </article>
-          <article class="instrument span-4" aria-label="Verdichtung">
-            <h3>Verdichtungsscore</h3>
-            <label for="plot">Grundstück (m²)</label>
-            <input type="number" id="plot" value="780">
-            <label for="factor">AZ / GFZ</label>
-            <input type="number" id="factor" value="0.5" step="0.1">
-            <label for="zone">Zone</label>
-            <select id="zone">
-              <option value="W2">W2</option>
-              <option value="W3">W3</option>
-              <option value="Kern">Kern</option>
-              <option value="Zentrum">Zentrum</option>
-            </select>
-            <button class="btn btn-primary" id="calcVerdichtung" type="button">Berechnen</button>
-            <p id="verdichtungResult" class="result">Bereit.</p>
+          <article class="instrument span-4" data-flow="verdichtung" aria-label="Verdichtung">
+            <div class="flow-progress"><div class="flow-progress-bar" data-progress></div></div>
+            <p class="flow-status" data-progress-label>Schritt 1/3 · Analyse läuft</p>
+            <p class="flow-message" data-flow-message></p>
+            <div class="flow-step active" data-step="1">
+              <p>Grundstücksdaten</p>
+              <input type="number" data-field="plot" required value="780" inputmode="numeric" placeholder="Fläche m²">
+              <input type="number" data-field="factor" required value="0.5" step="0.1" placeholder="AZ / GFZ">
+              <div class="flow-buttons">
+                <button class="btn btn-primary" data-forward>Weiter</button>
+              </div>
+            </div>
+            <div class="flow-step" data-step="2">
+              <p>Welche Zone gilt?</p>
+              <select data-field="zone" required>
+                <option value="W2">Wohnzone W2</option>
+                <option value="W3">Wohnzone W3</option>
+                <option value="Kern">Kernzone</option>
+                <option value="Zentrum">Zentrumszone</option>
+              </select>
+              <div class="flow-buttons">
+                <button class="btn btn-secondary" data-back>Zurück</button>
+                <button class="btn btn-primary" data-forward>Analyse</button>
+              </div>
+            </div>
+            <div class="flow-step" data-step="3">
+              <p class="flow-result" data-result>Score bereit.</p>
+              <p>Wir senden den vollständigen Verdichtungsreport per Mail.</p>
+              <input type="email" data-email placeholder="E-Mail">
+              <div class="flow-buttons">
+                <button class="btn btn-secondary" data-back>Zurück</button>
+                <button class="btn btn-primary" data-submit>Dossier senden</button>
+              </div>
+            </div>
           </article>
         </div>
       </div>
