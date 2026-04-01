@@ -23,3 +23,7 @@
 1. Im GTM-Container `GTM-M7JNHTLN` drei Custom Event Trigger anlegen.
 2. GA4-Events mit identischen Namen erstellen (Naming-Konsistenz).
 3. Zusätzlich serverseitig speichern, sobald Make.com-Webhook produktiv ist.
+
+## Failover
+- Frontend sendet Payload parallel an Make.com-Webhook und `/form-handler.php` (E-Mail an kontakt@eigentumer-check.ch).
+- Sobald Webhook produktiv ist, genügt das Aktualisieren der URL – der Mailer bleibt als Backup aktiv.
