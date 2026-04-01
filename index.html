@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/styles/theme.css">
+  <link rel="stylesheet" href="/styles/print-dossier.css" media="print">
   <!-- Google Tag Manager -->
     <script>
     window.dataLayer = window.dataLayer || [];
@@ -267,8 +268,8 @@
         <div class="layout-grid">
           <div class="span-7 hero-copy">
             <p class="eyebrow">PRÄZISION · DISKRETION</p>
-            <h1>Wir bauen Entscheide, keine Kampagnen.</h1>
-            <p>Eigentümer-Check liefert Tragbarkeit, Scheidung, Erbschaft und Verdichtung mit der Ruhe eines Zürcher Private Banking Floors. Präzise Analysen, saubere Dossiers, keine lauten Versprechen.</p>
+            <h1>Diskrete Expertise für Ihre Immobilien-Strategie.</h1>
+            <p>Präzise Analysen für Pensionierung, Scheidung, Erbschaft und Baupotenzial in der Zentralschweiz. Wir agieren wie eine Privatbank – unabhängig, streng vertraulich, immer evidenzbasiert.</p>
             <div class="hero-cta">
               <a class="btn btn-primary" href="#kontakt">Standortbestimmung</a>
               <a class="btn btn-secondary" href="#interactive">Instrumente</a>
@@ -651,6 +652,38 @@
         }
       });
     }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@id": "#eigentuemer-check",
+        "@type": ["FinancialService","ProfessionalService"],
+        "name": "Eigentümer-Check",
+        "url": "https://www.eigentumer-check.ch/",
+        "areaServed": ["CH-SZ","CH-ZG","CH-LU","CH-ZH"],
+        "serviceType": ["Tragbarkeit Hypothek", "Hausverkauf bei Scheidung", "Erbengemeinschaft Coaching", "Verdichtungspotenzial"],
+        "founder": {"@id": "#lars-grepper"},
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "contactType": "customer service",
+          "email": "kontakt@eigentumer-check.ch",
+          "telephone": "+41792700446",
+          "areaServed": "CH"
+        }
+      },
+      {
+        "@id": "#lars-grepper",
+        "@type": "Person",
+        "name": "Lars Grepper",
+        "jobTitle": "Immobilienexperte",
+        "worksFor": {"@id": "#eigentuemer-check"},
+        "knowsAbout": ["Tragbarkeit Hypothek Rentner Schweiz","Hausverkauf bei Scheidung Ablauf","Immobilie erben Erbengemeinschaft","Ausnützungsziffer erhöhen"]
+      }
+    ]
+  }
   </script>
 </body>
 </html>

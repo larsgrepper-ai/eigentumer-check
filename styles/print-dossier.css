@@ -1,0 +1,38 @@
+/* Print styles for Dossier exports */
+@media print {
+  body {
+    font-family: 'Inter', 'Times New Roman', serif;
+    color: #111218;
+    margin: 20mm;
+  }
+  header, footer, nav, .no-print { display: none !important; }
+  .dossier-cover {
+    text-align: center;
+    border-bottom: 1px solid #d9c79e;
+    margin-bottom: 20mm;
+    padding-bottom: 10mm;
+  }
+  .dossier-cover h1 {
+    font-size: 26pt;
+    letter-spacing: 2pt;
+  }
+  .dossier-section {
+    page-break-inside: avoid;
+    margin-bottom: 15mm;
+  }
+  .dossier-section h2 {
+    font-size: 16pt;
+    border-bottom: 1px solid #d9c79e;
+    margin-bottom: 6mm;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 10mm;
+  }
+  table th, table td {
+    border: 1px solid #cfd3db;
+    padding: 4mm;
+    font-size: 10pt;
+  }
+}
