@@ -3,264 +3,228 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Eigentümer-Check | Strategische Plattform für Eigentümer in der Zentralschweiz</title>
-  <meta name="description" content="Eigentümer-Check.ch ist die High-End Plattform für Liegenschaftsbesitzer in SZ, ZG, LU und ZH. Wir berechnen Tragbarkeit bei Pensionierung, strukturieren Hausverkauf bei Scheidung und prüfen Verdichtungspotenziale auf Bankniveau.">
-  <meta name="keywords" content="Tragbarkeit bei Pensionierung berechnen, Hausverkauf bei Scheidung Schweiz, Verdichtungspotenzial Grundstück prüfen, Liegenschaft, Zentralschweiz">
+  <title>Eigentümer-Check | Präzisionsplattform für Eigentümer in SZ · ZG · LU · ZH</title>
+  <meta name="description" content="Eigentümer-Check orchestriert Tragbarkeit, Scheidung, Erbschaft und Verdichtung mit schweizerischer Diskretion. Präzise Analysen, PDF-Dossiers und Rechner wie Instrumente aus einem Zürcher Labor.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500&display=swap" rel="stylesheet">
   <!-- Google Tag Manager -->
-  <script>
-    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
-    f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-M7JNHTLN');
-  </script>
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-M7JNHTLN');</script>
   <!-- End Google Tag Manager -->
   <style>
-    :root {
-      --navy:#002366;
-      --navy-deep:#000C3F;
-      --night:#0B1228;
-      --gold:#D4AF37;
-      --sand:#F4F2EB;
-      --bone:#FCFBF7;
-      --ink:#11162B;
-      --muted:#6E7387;
-      --card:#ffffff;
-      --shadow-soft:0 25px 60px rgba(0,35,102,0.08);
-      --shadow-dark:0 35px 80px rgba(0,12,63,0.25);
-      --radius-lg:32px;
-      --radius-md:24px;
-      --page-pad:clamp(1.5rem,4vw,4rem);
-      --grid-gap:clamp(1.5rem,2vw,2.6rem);
+    :root{
+      --deep-onyx:#07090d;
+      --onyx-75:#0f1219;
+      --frost:#f5f7f9;
+      --mist:#c6ccd5;
+      --graphite:#1b1f29;
+      --champagne:#d9c79e;
+      --champagne-soft:rgba(217,199,158,0.18);
+      --line:rgba(255,255,255,0.08);
+      --space-1:8px;
+      --space-2:16px;
+      --space-3:24px;
+      --space-4:32px;
+      --space-5:40px;
+      --space-6:48px;
     }
     *{box-sizing:border-box;margin:0;padding:0;}
-    body{font-family:'Inter',sans-serif;background:var(--night);color:white;line-height:1.7;-webkit-font-smoothing:antialiased;}
-    img{max-width:100%;height:auto;display:block;}
+    body{font-family:'Inter',sans-serif;background:var(--deep-onyx);color:var(--frost);line-height:1.6;-webkit-font-smoothing:antialiased;}
     a{text-decoration:none;color:inherit;}
-    .container{width:min(1200px,100% - 2*var(--page-pad));margin:0 auto;}
-    header{background:linear-gradient(140deg,var(--navy-deep),var(--navy));padding:32px 0 120px;position:relative;overflow:hidden;}
-    header::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 22% 20%,rgba(212,175,55,0.18),transparent 55%);pointer-events:none;}
-    nav{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding-bottom:24px;border-bottom:1px solid rgba(255,255,255,0.1);}
-    nav .logo{font-weight:600;letter-spacing:0.08em;text-transform:uppercase;}
-    nav ul{list-style:none;display:flex;flex-wrap:wrap;gap:18px;color:rgba(255,255,255,0.8);}
-    .announcement{background:var(--gold);color:var(--night);padding:12px var(--page-pad);text-align:center;font-weight:600;letter-spacing:0.05em;}
-    .hero{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:var(--grid-gap);margin-top:48px;align-items:start;}
-    .eyebrow{letter-spacing:0.3em;font-size:0.78rem;text-transform:uppercase;color:rgba(255,255,255,0.7);margin-bottom:18px;}
-    h1{font-size:clamp(2.5rem,4vw,3.8rem);line-height:1.15;margin-bottom:18px;}
-    .hero-card{background:rgba(255,255,255,0.08);border-radius:var(--radius-lg);padding:32px;box-shadow:var(--shadow-dark);backdrop-filter:blur(12px);}
-    .hero-card .metric{display:flex;flex-direction:column;margin-bottom:18px;}
-    .hero-card .metric strong{font-size:2.4rem;}
-    blockquote{margin-top:26px;padding-left:20px;border-left:2px solid rgba(255,255,255,0.4);font-style:italic;color:rgba(255,255,255,0.85);}
-    .btn{display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:14px 32px;font-weight:600;font-size:1rem;border:1px solid transparent;transition:transform .2s,box-shadow .2s;cursor:pointer;}
-    .btn-primary{background:var(--gold);color:var(--night);box-shadow:0 20px 50px rgba(212,175,55,0.35);}
-    .btn-secondary{border-color:rgba(255,255,255,0.35);color:white;}
+    img{max-width:100%;display:block;}
+    .container{width:min(1200px,100% - 2*var(--space-4));margin:0 auto;}
+    header{background:radial-gradient(circle at 15% 20%,rgba(217,199,158,0.15),transparent 55%),linear-gradient(130deg,var(--onyx-75),var(--deep-onyx));padding:var(--space-5) 0 var(--space-6);border-bottom:1px solid rgba(255,255,255,0.04);}
+    nav{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:var(--space-2);padding-bottom:var(--space-3);border-bottom:1px solid var(--line);}
+    .logo{font-family:'Space Grotesk',sans-serif;letter-spacing:0.2em;text-transform:uppercase;font-size:0.85rem;}
+    nav ul{list-style:none;display:flex;flex-wrap:wrap;gap:var(--space-2);font-size:0.9rem;color:rgba(245,247,249,0.75);}    
+    .hero{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:var(--space-4);padding-top:var(--space-4);}
+    .hero h1{font-size:clamp(2.4rem,4vw,3.6rem);line-height:1.2;margin-bottom:var(--space-2);}
+    .eyebrow{letter-spacing:0.3em;font-size:0.72rem;text-transform:uppercase;color:rgba(245,247,249,0.6);margin-bottom:var(--space-2);}
+    .hero-copy p{color:rgba(245,247,249,0.82);}
+    .hero-cta{margin-top:var(--space-3);display:flex;flex-wrap:wrap;gap:var(--space-2);}
+    .btn{padding:var(--space-2) var(--space-3);border-radius:999px;font-weight:600;border:1px solid transparent;transition:transform .2s;border-color:var(--champagne-soft);}
+    .btn-primary{background:var(--champagne);color:var(--deep-onyx);border-color:var(--champagne);}
+    .btn-secondary{color:var(--frost);}
     .btn:hover{transform:translateY(-2px);}
-    .hero-cta{margin-top:24px;display:flex;flex-wrap:wrap;gap:14px;}
-    main{background:var(--bone);color:var(--ink);margin-top:-80px;border-radius:48px 48px 0 0;padding:80px 0 0;}
-    section{padding:0 0 80px;}
-    section + section{border-top:1px solid rgba(0,35,102,0.08);padding-top:80px;}
-    h2.section-title{font-size:2.3rem;margin-bottom:14px;color:var(--navy);}
-    p.section-subtitle{max-width:760px;color:var(--muted);margin-bottom:28px;}
-    .kpi-strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:var(--grid-gap);margin-top:48px;}
-    .kpi{background:white;border-radius:var(--radius-md);padding:26px;box-shadow:var(--shadow-soft);border:1px solid rgba(0,35,102,0.08);}
-    .kpi strong{font-size:2rem;color:var(--navy);display:block;}
-    .silo-grid,.intent-list,.tools-grid,.process-grid,.values-grid{display:grid;gap:var(--grid-gap);grid-template-columns:repeat(auto-fit,minmax(260px,1fr));}
-    .card{background:white;border-radius:var(--radius-lg);padding:32px;box-shadow:var(--shadow-soft);border:1px solid rgba(0,35,102,0.08);}
-    .tag{display:inline-flex;padding:6px 14px;border-radius:999px;background:rgba(0,35,102,0.08);font-size:0.78rem;font-weight:600;text-transform:uppercase;letter-spacing:0.12em;margin-bottom:14px;color:var(--navy);}
-    .intent-pill{padding:18px 22px;border-radius:20px;border:1px solid rgba(0,35,102,0.08);background:white;display:flex;justify-content:space-between;align-items:center;}
-    .intent-pill span{color:var(--muted);font-size:0.85rem;}
-    .tool-card{background:var(--night);color:white;border-radius:var(--radius-lg);padding:32px;box-shadow:var(--shadow-dark);border:1px solid rgba(255,255,255,0.08);display:flex;flex-direction:column;gap:12px;}
-    .tool-card label{font-size:0.85rem;color:rgba(255,255,255,0.75);}
-    .tool-card input,.tool-card select{width:100%;border:1px solid rgba(255,255,255,0.2);border-radius:18px;background:rgba(255,255,255,0.05);color:white;padding:12px 14px;font-family:inherit;font-size:1rem;}
-    .tool-card input:focus,.tool-card select:focus{border-color:var(--gold);outline:none;}
-    .result{margin-top:12px;padding:14px 16px;border-radius:18px;background:rgba(212,175,55,0.12);color:white;font-weight:500;opacity:0;transform:translateY(6px);transition:opacity .3s ease,transform .3s ease;}
+    .hero-panel{border:1px solid var(--line);border-radius:16px;padding:var(--space-3);background:rgba(255,255,255,0.02);display:grid;gap:var(--space-2);}
+    .metric{display:flex;justify-content:space-between;align-items:center;font-size:0.95rem;}
+    .metric strong{font-family:'Space Grotesk',sans-serif;font-size:1.6rem;color:var(--champagne);}
+    blockquote{margin-top:var(--space-3);padding-left:var(--space-2);border-left:2px solid var(--champagne-soft);font-style:italic;color:rgba(245,247,249,0.75);}
+    main{background:var(--frost);color:var(--graphite);border-radius:32px 32px 0 0;margin-top:-32px;padding-top:var(--space-6);}    
+    section{padding:0 0 var(--space-6);}    
+    section+section{border-top:1px solid rgba(7,9,13,0.06);padding-top:var(--space-6);}    
+    h2.section-title{font-size:2.1rem;margin-bottom:var(--space-2);}
+    p.section-subtitle{max-width:680px;color:#5c6271;margin-bottom:var(--space-4);}    
+    .grid{display:grid;gap:var(--space-3);grid-template-columns:repeat(auto-fit,minmax(260px,1fr));}
+    .card{border:1px solid rgba(7,9,13,0.08);border-radius:20px;padding:var(--space-3);background:white;box-shadow:0 10px 30px rgba(7,9,13,0.06);}
+    .tag{display:inline-flex;padding:var(--space-1) var(--space-2);border-radius:999px;background:rgba(7,9,13,0.06);font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;color:#4b4f5d;margin-bottom:var(--space-2);}
+    .kpi-strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:var(--space-3);}
+    .kpi{background:white;border-radius:16px;padding:var(--space-3);border:1px solid rgba(7,9,13,0.08);}
+    .kpi strong{font-size:2rem;color:var(--graphite);display:block;}
+    .intent-list{display:grid;gap:var(--space-2);grid-template-columns:repeat(auto-fit,minmax(260px,1fr));}
+    .intent-pill{border:1px solid rgba(7,9,13,0.08);border-radius:16px;padding:var(--space-2) var(--space-3);display:flex;justify-content:space-between;align-items:center;background:white;}
+    .tools-grid{display:grid;gap:var(--space-3);grid-template-columns:repeat(auto-fit,minmax(300px,1fr));}
+    .instrument{background:#0c0f15;border:1px solid rgba(255,255,255,0.08);border-radius:18px;padding:var(--space-3);color:var(--frost);display:flex;flex-direction:column;gap:var(--space-2);}
+    .instrument label{font-size:0.8rem;color:rgba(245,247,249,0.7);letter-spacing:0.08em;text-transform:uppercase;}
+    .instrument input,.instrument select{border:1px solid rgba(245,247,249,0.18);background:rgba(255,255,255,0.02);border-radius:12px;padding:var(--space-2);color:var(--frost);font-size:1rem;font-variant-numeric:tabular-nums;}
+    .instrument input:focus{outline:none;border-color:var(--champagne);box-shadow:0 0 0 1px var(--champagne-soft);}
+    .result{border:1px dashed rgba(245,247,249,0.3);border-radius:12px;padding:var(--space-2);font-family:'Space Grotesk',sans-serif;color:var(--champagne);opacity:0;transform:translateY(4px);transition:opacity .25s,transform .25s;}
     .result.show{opacity:1;transform:translateY(0);}
-    .lead-offer{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:var(--grid-gap);align-items:center;}
-    .lead-card{background:var(--navy);color:white;border-radius:var(--radius-lg);padding:36px;box-shadow:var(--shadow-dark);}
-    form{display:grid;gap:16px;}
-    input,select,textarea{border:1px solid rgba(0,35,102,0.2);border-radius:16px;padding:14px 16px;font-size:1rem;font-family:inherit;transition:border .2s;}
+    .lead-offer{display:grid;gap:var(--space-4);grid-template-columns:repeat(auto-fit,minmax(320px,1fr));align-items:center;}
+    .lead-card{background:var(--graphite);color:var(--frost);border-radius:20px;padding:var(--space-4);border:1px solid rgba(255,255,255,0.08);}    
+    form{display:grid;gap:var(--space-2);}
+    input,select,textarea{border:1px solid rgba(7,9,13,0.12);border-radius:12px;padding:var(--space-2);font-size:1rem;font-family:inherit;}
     textarea{min-height:120px;resize:vertical;}
-    input:focus,select:focus,textarea:focus{border-color:var(--navy);outline:none;box-shadow:0 0 0 3px rgba(0,35,102,0.08);}
-    .cta-form{background:white;border-radius:var(--radius-lg);padding:40px;box-shadow:0 40px 90px rgba(0,35,102,0.15);}
-    .stepper{display:flex;gap:10px;margin-bottom:16px;}
-    .step{flex:1;height:4px;border-radius:999px;background:rgba(0,35,102,0.12);}
-    .step.active{background:var(--gold);}
-    .values-grid .card{min-height:100%;}
-    footer{background:var(--night);color:rgba(255,255,255,0.75);padding:48px 0;margin-top:80px;}
-    footer .container{display:flex;flex-wrap:wrap;gap:24px;justify-content:space-between;}
-    @media (max-width:900px){
-      nav{flex-direction:column;align-items:flex-start;}
-      .tools-grid{grid-template-columns:repeat(auto-fit,minmax(240px,1fr));}
-      .hero-card{order:-1;}
-    }
-    @media (max-width:600px){
-      header{padding-bottom:90px;}
-      .announcement{padding-inline:1rem;}
+    input:focus,select:focus,textarea:focus{outline:none;border-color:var(--graphite);}    
+    .cta-form{background:white;border-radius:24px;padding:var(--space-4);border:1px solid rgba(7,9,13,0.08);box-shadow:0 20px 60px rgba(7,9,13,0.08);}    
+    .stepper{display:flex;gap:var(--space-1);margin-bottom:var(--space-2);}    
+    .step{flex:1;height:4px;border-radius:999px;background:rgba(7,9,13,0.1);}    
+    .step.active{background:var(--graphite);}    
+    footer{background:var(--deep-onyx);color:rgba(245,247,249,0.7);padding:var(--space-5) 0;margin-top:var(--space-6);}
+    footer .container{display:flex;flex-wrap:wrap;gap:var(--space-3);justify-content:space-between;}
+    @media(max-width:640px){
+      .container{width:calc(100% - 2*var(--space-3));}
+      .hero{grid-template-columns:1fr;}
+      .hero-panel{order:-1;}
       .btn{width:100%;justify-content:center;}
-      form{grid-template-columns:1fr;}
-    }
-    @media (prefers-reduced-motion:reduce){
-      .btn,.result{transition:none;}
     }
   </style>
 </head>
 <body>
-  <!-- Google Tag Manager (noscript) -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M7JNHTLN" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
-  <div class="announcement">Fokus: Eigentümer in SZ · ZG · LU · ZH — Entscheidungsfähigkeit in unter 48h</div>
   <header>
     <div class="container">
       <nav>
-        <div class="logo">Eigentümer-Check.ch</div>
+        <div class="logo">EIGENTÜMER·CHECK</div>
         <ul>
-          <li><a href="#silos">Kompetenzzentren</a></li>
-          <li><a href="#intent">Such-Intelligenz</a></li>
-          <li><a href="#interactive">Rechner</a></li>
+          <li><a href="#silos">Kompetenz</a></li>
+          <li><a href="#intent">Suchintelligenz</a></li>
+          <li><a href="#interactive">Instrumente</a></li>
           <li><a href="#lead">PDF-Dossier</a></li>
-          <li><a href="#werte">Unsere Werte</a></li>
+          <li><a href="#werte">Werte</a></li>
           <li><a href="#kontakt">Kontakt</a></li>
         </ul>
       </nav>
       <div class="hero">
-        <div>
-          <p class="eyebrow">Decision OS für Liegenschaftsbesitzer</p>
-          <h1>Tragbarkeit sichern, Hausverkauf koordinieren, Verdichtung freischalten.</h1>
-          <p>Wir liefern Bank-taugliche Analysen für Pensionierung, Scheidung, Erbschaft und Baupotenzial in der Zentralschweiz. Jede Auswertung endet mit einem Executive-PDF inklusive Handlungspfad und Ansprechpartnern.</p>
+        <div class="hero-copy">
+          <p class="eyebrow">SZ · ZG · LU · ZH</p>
+          <h1>Swiss Silent Luxury für Eigentümer, die Fakten verlangen.</h1>
+          <p>Wir prüfen Tragbarkeit, Scheidung, Erbschaft und Verdichtung wie eine Zürcher Privatbank: präzise, diskret und mit klaren Handlungspfaden.</p>
           <div class="hero-cta">
-            <a class="btn btn-primary" href="#kontakt">Standortbestimmung buchen</a>
-            <a class="btn btn-secondary" href="#interactive">Rechner testen</a>
+            <a class="btn btn-primary" href="#kontakt">Standortbestimmung</a>
+            <a class="btn btn-secondary" href="#interactive">Instrumente ansehen</a>
           </div>
-          <blockquote>„Eigentümer-Check ersetzt Bauchgefühl durch harte Fakten. Wir sprechen kantonale Behörden- und Bankensprache, bevor es kritisch wird.“ – Lars Grepper, Immobilienexperte</blockquote>
+          <blockquote>„Wir sprechen erst, wenn die Zahlen sitzen. Dann jedoch mit der Autorität eines kantonalen Entscheids.“ – Lars Grepper</blockquote>
         </div>
-        <div class="hero-card">
-          <div class="metric"><strong>48h</strong><span>SLA für Tragbarkeit bei Pensionierung berechnen</span></div>
-          <div class="metric"><strong>CHF 2.6 Mio</strong><span>Durchschnittlicher Mandatswert in SZ/ZG</span></div>
-          <div class="metric"><strong>92%</strong><span>Lead-to-Dossier Conversion dank PDF-Exposé</span></div>
-          <p class="muted" style="color:rgba(255,255,255,0.75);">Partnernetzwerk: Banken, Steuerberater, Familienrecht.</p>
+        <div class="hero-panel">
+          <div class="metric"><span>Reaktionszeit</span><strong>2h</strong></div>
+          <div class="metric"><span>Lead → Dossier</span><strong>92%</strong></div>
+          <div class="metric"><span>Durchschnittliche Liegenschaft</span><strong>CHF 2.6 Mio</strong></div>
+          <p style="font-size:0.9rem;color:rgba(245,247,249,0.65);">Dokumente werden ausschliesslich in Schweizer Rechenzentren verarbeitet.</p>
         </div>
-      </div>
-      <div class="kpi-strip">
-        <div class="kpi"><strong>210</strong><span>Standortbestimmungen 2025–2026</span></div>
-        <div class="kpi"><strong>33%</strong><span>Maximale Tragbarkeit – wir simulieren vor dem Banktermin</span></div>
-        <div class="kpi"><strong>11</strong><span>Checklisten (Vortrittsrecht, Mehrwertabgabe, Erbteil)</span></div>
-        <div class="kpi"><strong>24h</strong><span>Antwortzeit bei Scheidungsfällen</span></div>
       </div>
     </div>
   </header>
   <main>
     <section id="silos">
       <div class="container">
-        <h2 class="section-title">Kompetenzzentren mit eigenem Playbook</h2>
-        <p class="section-subtitle">Vier spezialisierte Streams bearbeiten jede Anfrage wie ein Deal-Team. Wir sprechen die Sprache der Banken, Notare und Gemeinden in SZ, ZG, LU und ZH.</p>
-        <div class="silo-grid">
+        <h2 class="section-title">Kompetenzzentren</h2>
+        <p class="section-subtitle">Vier stille, aber kompromisslose Streams. Jede Analyse endet mit einem unterschriftsreifen PDF.</p>
+        <div class="grid">
           <article class="card">
             <span class="tag">Pensionierung</span>
-            <h3>Tragbarkeit bei Pensionierung berechnen</h3>
-            <p>AHV, PK, Säule 3a und Mieteinnahmen treffen auf 5%-Stresstest und 1% Unterhalt. Wir zeigen, ob Halten, Splitting oder Teilverkauf die beste Lösung ist.</p>
-            <ul>
-              <li>Liquiditätsplanung bis 2040</li>
-              <li>Hypothekensplitting & Lombardoptionen</li>
-              <li>Sale & Leaseback Szenarien</li>
-            </ul>
+            <h3>Tragbarkeit im Alter</h3>
+            <p>Wir kombinieren AHV, PK und Vermögen mit 5%-Stress, 1% Unterhalt und optionalem 1%-Modell. Resultat: Halten, Splitting oder Sale & Leaseback.</p>
           </article>
           <article class="card">
             <span class="tag">Scheidung</span>
-            <h3>Hausverkauf bei Scheidung Schweiz</h3>
-            <p>Bewertung, Ausgleichszahlung, Vortrittsrecht, Grundbuch. Wir liefern Ausstiegsszenarien mit Gerichtstauglichkeit.</p>
-            <ul>
-              <li>Cash-out Modelle</li>
-              <li>Mediation & Grundbuchkoordination</li>
-              <li>Beschleunigte Vermarktung</li>
-            </ul>
+            <h3>Hausverkauf & Vortritt</h3>
+            <p>Bewertung, Ausgleich, Stillhaltevereinbarung. Wir liefern einen 90-Tage-Plan inklusive Grundbuch- und Gerichtsdokumente.</p>
           </article>
           <article class="card">
             <span class="tag">Erbschaft</span>
-            <h3>Erbengemeinschaft & Nachlass</h3>
-            <p>Nettoerlös, Steuerlast, Pflichtteile. Wir schaffen Fakten, damit Familien entscheiden können.</p>
-            <ul>
-              <li>Vergleichs- & Ertragswert</li>
-              <li>Steueraufschub & Progression</li>
-              <li>Exposé für Investoren</li>
-            </ul>
+            <h3>Nachlass & Steuer</h3>
+            <p>Grundstückgewinnsteuer-Aufschub, Liquiditätsplan je Erbe, Pflichtteilsrespekt. Mit Kantonsschwerpunkt SZ/ZG/LU/ZH.</p>
           </article>
           <article class="card">
             <span class="tag">Verdichtung</span>
-            <h3>Verdichtungspotenzial Grundstück prüfen</h3>
-            <p>Zonenplan, AZ/GFZ, Mehrwertabgabe, JV-Strukturen. Wir übersetzen Potenzial in Rendite.</p>
-            <ul>
-              <li>W2/W3/Kernzonen-Analyse</li>
-              <li>Machbarkeitsstudien</li>
-              <li>Partnering mit Entwicklern</li>
-            </ul>
+            <h3>Baupotenzial</h3>
+            <p>AZ/GFZ, Mehrwertabgabe, Nutzwertberechnungen. Wir zeigen, ob Halten, JV oder Verkauf den höchsten Wert liefert.</p>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="kpi-strip">
+          <div class="kpi"><strong>210</strong><span>Standortbestimmungen 2025–26</span></div>
+          <div class="kpi"><strong>33%</strong><span>Maximale Tragbarkeit – wir bereiten Banken vor</span></div>
+          <div class="kpi"><strong>11</strong><span>Checklisten zu Steuer, Recht, Bau</span></div>
+          <div class="kpi"><strong>48h</strong><span>PDF-Dossier Turnaround</span></div>
         </div>
       </div>
     </section>
 
     <section id="intent">
       <div class="container">
-        <h2 class="section-title">Realtime-Suchintelligenz</h2>
-        <p class="section-subtitle">Unser SEO-Researcher trackt Suchvolumen und Fragen der Eigentümer. Daraus entstehen zielgenaue Inhalte und Rechner.</p>
+        <h2 class="section-title">Suchintelligenz</h2>
+        <p class="section-subtitle">Unser SEO-Researcher hält jede Woche die Fragen der Eigentümer fest – wir beantworten sie mit Substanz.</p>
         <div class="intent-list">
-          <div class="intent-pill">Tragbarkeit bei Pensionierung berechnen <span>+38% Suchanfragen</span></div>
-          <div class="intent-pill">Hausverkauf bei Scheidung Schweiz <span>CTR 12,4%</span></div>
-          <div class="intent-pill">Verdichtungspotenzial Grundstück prüfen <span>Snippet in Arbeit</span></div>
-          <div class="intent-pill">Vortrittsrecht Geschwister Liegenschaft <span>FAQ live</span></div>
-          <div class="intent-pill">Mehrwertabgabe Luzern Beispiele <span>Dossier aktiv</span></div>
-          <div class="intent-pill">Hypothek nach Pension neu verhandeln <span>Leadmagnet bereit</span></div>
+          <div class="intent-pill">Tragbarkeit bei Pensionierung <span>+38%</span></div>
+          <div class="intent-pill">Hausverkauf bei Scheidung <span>CTR 12%</span></div>
+          <div class="intent-pill">Verdichtungspotenzial prüfen <span>Snippet Ziel</span></div>
+          <div class="intent-pill">Vortrittsrecht Geschwister <span>Neue FAQ</span></div>
+          <div class="intent-pill">Mehrwertabgabe Luzern <span>Dossier live</span></div>
+          <div class="intent-pill">Erbengemeinschaft Liquidität <span>Clusters erstellt</span></div>
         </div>
       </div>
     </section>
 
     <section id="interactive">
       <div class="container">
-        <h2 class="section-title">Interaktive Rechner & Playbooks</h2>
-        <p class="section-subtitle">Jeder Rechner liefert sofort einen Score, löst ein DataLayer-Event aus und bietet das PDF-Dossier an.</p>
+        <h2 class="section-title">Instrumente</h2>
+        <p class="section-subtitle">Die Rechner wirken wie Präzisionsgeräte. Jeder Output erzeugt ein DataLayer-Ereignis und einen PDF-Hinweis.</p>
         <div class="tools-grid">
-          <article class="tool-card">
-            <h3>Tragbarkeit Quick Check</h3>
+          <article class="instrument">
+            <h3>Tragbarkeit-Labor</h3>
             <label for="income">Netto-Rente (CHF)</label>
-            <input type="number" id="income" value="78000">
+            <input type="number" id="income" value="78000" inputmode="numeric">
             <label for="loan">Hypothek (CHF)</label>
-            <input type="number" id="loan" value="640000">
+            <input type="number" id="loan" value="640000" inputmode="numeric">
             <label for="rate">Zinsannahme (%)</label>
-            <input type="number" id="rate" value="5">
-            <label for="living">Lebenshaltung & Nebenkosten (CHF)</label>
-            <input type="number" id="living" value="18000">
-            <button class="btn btn-primary" id="calcTragbarkeit">Tragbarkeit berechnen</button>
+            <input type="number" id="rate" value="5" step="0.1">
+            <label for="living">Lebenshaltung (CHF)</label>
+            <input type="number" id="living" value="18000" inputmode="numeric">
+            <button class="btn btn-primary" id="calcTragbarkeit">Berechnen</button>
             <p id="tragbarkeitResult" class="result">Bereit.</p>
-            <p class="muted">PDF-Dossier sichern? <a href="#lead" style="color:var(--gold);font-weight:600;">Zum Download</a></p>
           </article>
-          <article class="tool-card">
+          <article class="instrument">
             <h3>Scheidungs-Ausgleich</h3>
-            <label for="value">Verkehrswert Liegenschaft (CHF)</label>
+            <label for="value">Verkehrswert (CHF)</label>
             <input type="number" id="value" value="1650000">
             <label for="debt">Resthypothek (CHF)</label>
             <input type="number" id="debt" value="780000">
             <label for="share">Anteil Person A (%)</label>
             <input type="number" id="share" value="50">
-            <button class="btn btn-primary" id="calcScheidung">Ausgleich berechnen</button>
-            <p id="scheidungResult" class="result">Starte Berechnung.</p>
-            <p class="muted">Exposé nötig? Wir liefern es in 72h.</p>
+            <button class="btn btn-primary" id="calcScheidung">Berechnen</button>
+            <p id="scheidungResult" class="result">Output</p>
           </article>
-          <article class="tool-card">
+          <article class="instrument">
             <h3>Verdichtungsscore</h3>
-            <label for="plot">Grundstücksfläche (m²)</label>
+            <label for="plot">Grundstück (m²)</label>
             <input type="number" id="plot" value="780">
-            <label for="factor">Ausnützungsziffer</label>
-            <input type="number" id="factor" value="0.5">
+            <label for="factor">AZ / GFZ</label>
+            <input type="number" id="factor" value="0.5" step="0.1">
             <label for="zone">Zone</label>
             <select id="zone">
-              <option value="W2">Wohnzone W2</option>
-              <option value="W3">Wohnzone W3</option>
-              <option value="Kern">Kernzone</option>
-              <option value="Zentrum">Zentrumszone</option>
+              <option value="W2">W2</option>
+              <option value="W3">W3</option>
+              <option value="Kern">Kern</option>
+              <option value="Zentrum">Zentrum</option>
             </select>
-            <button class="btn btn-primary" id="calcVerdichtung">Score berechnen</button>
+            <button class="btn btn-primary" id="calcVerdichtung">Berechnen</button>
             <p id="verdichtungResult" class="result">Bereit.</p>
-            <p class="muted">Volle Machbarkeitsstudie? Kontakt aufnehmen.</p>
           </article>
         </div>
       </div>
@@ -269,16 +233,16 @@
     <section id="lead">
       <div class="container lead-offer">
         <div>
-          <h2 class="section-title">PDF-Dossier & Checklisten</h2>
-          <p class="section-subtitle">Jeder Lead erhält automatisch ein 18-seitiges PDF mit Szenarien, Bank-Summary und Ansprechpartnern.</p>
+          <h2 class="section-title">PDF-Dossier</h2>
+          <p class="section-subtitle">18 Seiten, unterschriftsbereit. Enthält Cashflow, Steuer, Ansprechpartner.</p>
           <ul>
-            <li>Executive Summary mit Tragbarkeit und Cashflow</li>
-            <li>Checklisten (Vortrittsrecht, Grundstückgewinnsteuer, Verdichtung)</li>
-            <li>Verhandlungsbriefing für Banken und Behörden</li>
+            <li>Executive Summary mit Handlungsoptionen</li>
+            <li>Checklisten zu Vortrittsrecht, Steuer, Baurecht</li>
+            <li>Kontaktlinien zu Banken, Behörden, Architekten</li>
           </ul>
         </div>
         <div class="lead-card">
-          <h3>Download anfordern</h3>
+          <h3>Muster anfordern</h3>
           <form id="leadForm">
             <input type="text" name="name" placeholder="Vor- und Nachname" required>
             <input type="email" name="email" placeholder="E-Mail" required>
@@ -290,53 +254,18 @@
             </select>
             <button class="btn btn-primary" type="submit">PDF erhalten</button>
           </form>
-          <p id="leadMessage" class="muted" style="margin-top:12px;"></p>
-        </div>
-      </div>
-    </section>
-
-    <section id="process">
-      <div class="container">
-        <h2 class="section-title">Unser Ablauf – wie eine Privatbank</h2>
-        <p class="section-subtitle">Analyse, Recht, Vermarktung in vier Schritten.</p>
-        <div class="process-grid">
-          <div class="card">
-            <strong>01 · Intake</strong>
-            <p>Dokumentenablage, Grundbuch, Hypothek, Familienvereinbarung.</p>
-          </div>
-          <div class="card">
-            <strong>02 · Simulation</strong>
-            <p>Rechner, Szenarien, steuerliche Betrachtung pro Kanton.</p>
-          </div>
-          <div class="card">
-            <strong>03 · Dossier</strong>
-            <p>PDF-Exposé mit Zahlen, Handlungspfaden, Partnerempfehlungen.</p>
-          </div>
-          <div class="card">
-            <strong>04 · Umsetzung</strong>
-            <p>Koordination Banken, Notariat, Architekten oder Verkaufsmakler.</p>
-          </div>
+          <p id="leadMessage" style="margin-top:var(--space-2);font-size:0.9rem;opacity:0.8;"></p>
         </div>
       </div>
     </section>
 
     <section id="werte">
       <div class="container">
-        <h2 class="section-title">Unsere Werte</h2>
-        <p class="section-subtitle">Vertrauen ersetzt Testimonials: Diskretion, kantonale Tiefe, Unabhängigkeit.</p>
-        <div class="values-grid">
-          <article class="card">
-            <h3>Absolute Diskretion</h3>
-            <p>Mandate laufen über verschlüsselte Channels, Daten liegen in Schweizer Rechenzentren.</p>
-          </article>
-          <article class="card">
-            <h3>Kantonale Expertise</h3>
-            <p>Teams für SZ, ZG, ZH, LU – inklusive Steuerpraxis, Bauämter, Vortrittsrechte.</p>
-          </article>
-          <article class="card">
-            <h3>Unabhängigkeit</h3>
-            <p>Keine Bindung an Banken oder Makler. Empfehlungen basieren nur auf Zahlen.</p>
-          </article>
+        <h2 class="section-title">Werte</h2>
+        <div class="grid">
+          <article class="card"><h3>Diskretion</h3><p>Nur dedizierte Case-Owner erhalten Zugriff. Keine Cloud ausserhalb der Schweiz.</p></article>
+          <article class="card"><h3>Kantonale Präzision</h3><p>SZ, ZG, LU, ZH – inkl. Steuerpraxis, Bauprozesse, Ansprechpartner.</p></article>
+          <article class="card"><h3>Unabhängigkeit</h3><p>Keine Hidden-Fees, keine Kickbacks. Wir argumentieren einzig mit Zahlen.</p></article>
         </div>
       </div>
     </section>
@@ -345,8 +274,8 @@
       <div class="container">
         <div class="cta-form">
           <div class="stepper"><div class="step active" id="step1"></div><div class="step" id="step2"></div></div>
-          <h2 class="section-title" style="margin-bottom:8px;">Standortbestimmung starten</h2>
-          <p class="section-subtitle" style="margin-bottom:32px;">Antwort binnen 2 Stunden (werktags). Jedes Gespräch endet mit einem konkreten PDF.</p>
+          <h2 class="section-title">Standortbestimmung</h2>
+          <p class="section-subtitle">Antwort innert 2 Stunden. Gespräch endet mit einem PDF-Dossier.</p>
           <form id="contactForm">
             <label for="caseType">Falltyp</label>
             <select id="caseType" required>
@@ -362,17 +291,16 @@
               <option value=">90 Tagen">Über 90 Tage</option>
             </select>
             <label for="name">Name</label>
-            <input type="text" id="name" placeholder="Vor- und Nachname" required>
+            <input type="text" id="name" required>
             <label for="email">E-Mail</label>
-            <input type="email" id="email" placeholder="name@firma.ch" required>
+            <input type="email" id="email" required>
             <label for="tel">Telefon</label>
             <input type="tel" id="tel" placeholder="+41" required>
             <label for="message">Situation</label>
-            <textarea id="message" placeholder="Kurzbeschrieb inkl. Hypothek, Kanton, Ziel"></textarea>
+            <textarea id="message"></textarea>
             <button class="btn btn-primary" type="submit">Rückruf anfordern</button>
-            <p id="contactMessage" class="muted"></p>
+            <p id="contactMessage" style="margin-top:var(--space-2);font-size:0.9rem;color:#4b4f5d;"></p>
           </form>
-          <p class="muted" style="margin-top:20px;">Direkter Draht: kontakt@eigentumer-check.ch · +41 79 270 04 46 · Bergstrasse 40, 6410 Goldau</p>
         </div>
       </div>
     </section>
@@ -381,14 +309,14 @@
     <div class="container">
       <div>
         <strong>Eigentümer-Check</strong>
-        <p>Bergstrasse 40 · 6410 Goldau · Schweiz<br>E-Mail: kontakt@eigentumer-check.ch<br>Tel: +41 79 270 04 46</p>
+        <p>Bergstrasse 40 · 6410 Goldau · kontakt@eigentumer-check.ch · +41 79 270 04 46</p>
       </div>
       <div>
         <p><a href="/sitemap.xml">Sitemap</a></p>
         <p><a href="/robots.txt">Robots</a></p>
       </div>
       <div>
-        <p>© 2026 Eigentümer-Check – Vertrauensplattform für Liegenschaftsbesitzer.</p>
+        <p>© 2026 Eigentümer-Check. Präzision made in Switzerland.</p>
       </div>
     </div>
   </footer>
@@ -396,119 +324,94 @@
   <script>
     window.dataLayer = window.dataLayer || [];
     const WEBHOOK_URL = 'https://hooks.make.com/eigentumer-check-placeholder';
+    const EMAIL_ENDPOINT = '/form-handler.php';
 
-    function pushEvent(event){
-      window.dataLayer.push(event);
-    }
+    const resultToggle = (el)=>{if(!el)return;el.classList.remove('show');requestAnimationFrame(()=>el.classList.add('show'));};
 
-    function animateResult(el){
-      if(!el) return;
-      el.classList.remove('show');
-      requestAnimationFrame(()=>el.classList.add('show'));
-    }
-
-    const calcTragbarkeitBtn = document.getElementById('calcTragbarkeit');
-    const tragbarkeitResult = document.getElementById('tragbarkeitResult');
-    if (calcTragbarkeitBtn) {
-      calcTragbarkeitBtn.addEventListener('click', () => {
-        const income = Number(document.getElementById('income').value) || 0;
-        const loan = Number(document.getElementById('loan').value) || 0;
-        const rate = Number(document.getElementById('rate').value) || 0;
-        const living = Number(document.getElementById('living').value) || 0;
-        const interest = loan * (rate / 100);
-        const amort = loan * 0.01;
-        const totalCosts = interest + amort + living;
-        const ratio = income ? (totalCosts / income) * 100 : 0;
-        let verdict = 'Grenzwertig – Alternativen prüfen.';
-        if (ratio < 33) verdict = 'Bankfähig – Tragbarkeit im grünen Bereich.';
-        else if (ratio < 38) verdict = 'Gelb – Zusatzsicherheiten sinnvoll.';
-        const message = `Kosten CHF ${totalCosts.toLocaleString('de-CH')} · Quote ${ratio.toFixed(1)}% · ${verdict}`;
-        tragbarkeitResult.textContent = message;
-        animateResult(tragbarkeitResult);
-        pushEvent({event:'calculator_step_completed', calculator:'tragbarkeit', ratio:Number(ratio.toFixed(1))});
+    const calcTragbarkeitBtn=document.getElementById('calcTragbarkeit');
+    const tragbarkeitResult=document.getElementById('tragbarkeitResult');
+    if(calcTragbarkeitBtn){
+      calcTragbarkeitBtn.addEventListener('click',()=>{
+        const income=Number(document.getElementById('income').value)||0;
+        const loan=Number(document.getElementById('loan').value)||0;
+        const rate=Number(document.getElementById('rate').value)||0;
+        const living=Number(document.getElementById('living').value)||0;
+        const interest=loan*(rate/100);
+        const amort=loan*0.01;
+        const total=interest+amort+living;
+        const ratio=income?(total/income)*100:0;
+        let verdict='Gelb – Alternativen prüfen.';
+        if(ratio<33)verdict='Grün – bankfähig.';
+        else if(ratio>=38)verdict='Rot – zusätzliche Sicherheiten.';
+        const message=`Kosten CHF ${total.toLocaleString('de-CH')} · Quote ${ratio.toFixed(1)}% · ${verdict}`;
+        tragbarkeitResult.textContent=message;
+        resultToggle(tragbarkeitResult);
+        window.dataLayer.push({event:'calculator_step_completed',calculator:'tragbarkeit',ratio:Number(ratio.toFixed(1))});
       });
     }
 
-    const calcScheidungBtn = document.getElementById('calcScheidung');
-    const scheidungResult = document.getElementById('scheidungResult');
-    if (calcScheidungBtn) {
-      calcScheidungBtn.addEventListener('click', () => {
-        const value = Number(document.getElementById('value').value) || 0;
-        const debt = Number(document.getElementById('debt').value) || 0;
-        const share = Number(document.getElementById('share').value) || 0;
-        const equity = value - debt;
-        const payout = equity * (share / 100);
-        const message = `Eigenkapital CHF ${equity.toLocaleString('de-CH')} · Ausgleich Person A: CHF ${payout.toLocaleString('de-CH')}`;
-        scheidungResult.textContent = message;
-        animateResult(scheidungResult);
-        pushEvent({event:'calculator_step_completed', calculator:'scheidung', equity});
+    const calcScheidungBtn=document.getElementById('calcScheidung');
+    const scheidungResult=document.getElementById('scheidungResult');
+    if(calcScheidungBtn){
+      calcScheidungBtn.addEventListener('click',()=>{
+        const value=Number(document.getElementById('value').value)||0;
+        const debt=Number(document.getElementById('debt').value)||0;
+        const share=Number(document.getElementById('share').value)||0;
+        const equity=value-debt;
+        const payout=equity*(share/100);
+        const message=`Eigenkapital CHF ${equity.toLocaleString('de-CH')} · Ausgleich A: CHF ${payout.toLocaleString('de-CH')}`;
+        scheidungResult.textContent=message;
+        resultToggle(scheidungResult);
+        window.dataLayer.push({event:'calculator_step_completed',calculator:'scheidung',equity});
       });
     }
 
-    const calcVerdichtungBtn = document.getElementById('calcVerdichtung');
-    const verdichtungResult = document.getElementById('verdichtungResult');
-    if (calcVerdichtungBtn) {
-      calcVerdichtungBtn.addEventListener('click', () => {
-        const plot = Number(document.getElementById('plot').value) || 0;
-        const factor = Number(document.getElementById('factor').value) || 0;
-        const zone = document.getElementById('zone').value;
-        const base = plot * factor;
-        const zoneBonus = zone === 'W3' ? 1.2 : zone === 'Kern' ? 1.35 : zone === 'Zentrum' ? 1.5 : 1;
-        const potential = base * zoneBonus;
-        let label = 'Machbarkeitsstudie empfohlen';
-        if (potential > 600) label = 'Verdichtung sofort prüfen (hoher Score)';
-        const message = `Zusatzvolumen ca. ${potential.toFixed(0)} m² · ${label}`;
-        verdichtungResult.textContent = message;
-        animateResult(verdichtungResult);
-        pushEvent({event:'calculator_step_completed', calculator:'verdichtung', potential:Number(potential.toFixed(0)), zone});
+    const calcVerdichtungBtn=document.getElementById('calcVerdichtung');
+    const verdichtungResult=document.getElementById('verdichtungResult');
+    if(calcVerdichtungBtn){
+      calcVerdichtungBtn.addEventListener('click',()=>{
+        const plot=Number(document.getElementById('plot').value)||0;
+        const factor=Number(document.getElementById('factor').value)||0;
+        const zone=document.getElementById('zone').value;
+        const base=plot*factor;
+        const zoneBonus=zone==='W3'?1.2:zone==='Kern'?1.35:zone==='Zentrum'?1.5:1;
+        const potential=base*zoneBonus;
+        const label=potential>600?'Hoher Score – Machbarkeitsstudie aufgleisen.':'Machbarkeitsstudie empfohlen.';
+        verdichtungResult.textContent=`Zusatzvolumen ca. ${potential.toFixed(0)} m² · ${label}`;
+        resultToggle(verdichtungResult);
+        window.dataLayer.push({event:'calculator_step_completed',calculator:'verdichtung',potential:Number(potential.toFixed(0)),zone});
       });
     }
 
     async function postJSON(url,payload){
-      try{
-        const res = await fetch(url,{
-          method:'POST',
-          headers:{'Content-Type':'application/json'},
-          body:JSON.stringify(payload)
-        });
-        return res.ok;
-      }catch(err){
-        console.error(err);
-        return false;
-      }
-    }
+      try{const res=await fetch(url,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});return res.ok;}catch{return false;}}
 
-    const EMAIL_ENDPOINT = '/form-handler.php';
-
-    const leadForm = document.getElementById('leadForm');
-    const leadMessage = document.getElementById('leadMessage');
-    if (leadForm) {
-      leadForm.addEventListener('submit', async (e) => {
+    const leadForm=document.getElementById('leadForm');
+    const leadMessage=document.getElementById('leadMessage');
+    if(leadForm){
+      leadForm.addEventListener('submit',async e=>{
         e.preventDefault();
-        const formData = Object.fromEntries(new FormData(leadForm).entries());
-        const payload = {type:'pdf_request', ...formData};
-        const [webhookOk, mailOk] = await Promise.all([
-          postJSON(WEBHOOK_URL, payload),
-          postJSON(EMAIL_ENDPOINT, payload)
-        ]);
-        if(webhookOk || mailOk){
-          leadMessage.textContent = 'Danke! Dein PDF-Dossier wird innerhalb von 2 Minuten per Mail versendet.';
-          pushEvent({event:'pdf_requested', focus:formData.fokus});
+        const formData=Object.fromEntries(new FormData(leadForm).entries());
+        const payload={type:'pdf_request',...formData};
+        const [webhookOk,mailOk]=await Promise.all([postJSON(WEBHOOK_URL,payload),postJSON(EMAIL_ENDPOINT,payload)]);
+        if(webhookOk||mailOk){
+          leadMessage.textContent='PDF unterwegs – bitte Posteingang prüfen.';
+          window.dataLayer.push({event:'pdf_requested',focus:formData.fokus});
           leadForm.reset();
         }else{
-          leadMessage.textContent = 'Momentan keine Verbindung – bitte telefonisch melden oder später erneut versuchen.';
+          leadMessage.textContent='Momentan keine Verbindung – bitte telefonisch melden.';
         }
       });
     }
 
-    const contactForm = document.getElementById('contactForm');
-    const contactMessage = document.getElementById('contactMessage');
-    const step1 = document.getElementById('step1');
-    const step2 = document.getElementById('step2');
-    if (contactForm) {
-      contactForm.addEventListener('submit', async (e) => {
+    const contactForm=document.getElementById('contactForm');
+    const contactMessage=document.getElementById('contactMessage');
+    const step1=document.getElementById('step1');
+    const step2=document.getElementById('step2');
+    if(contactForm){
+      contactForm.addEventListener('submit',async e=>{
         e.preventDefault();
-        const payload = {
+        const payload={
           type:'lead',
           caseType:document.getElementById('caseType').value,
           timeline:document.getElementById('timeline').value,
@@ -517,18 +420,15 @@
           tel:document.getElementById('tel').value,
           message:document.getElementById('message').value
         };
-        const [webhookOk, mailOk] = await Promise.all([
-          postJSON(WEBHOOK_URL, payload),
-          postJSON(EMAIL_ENDPOINT, payload)
-        ]);
-        if(webhookOk || mailOk){
-          contactMessage.textContent = 'Danke! Wir melden uns telefonisch innert 2 Stunden.';
+        const [webhookOk,mailOk]=await Promise.all([postJSON(WEBHOOK_URL,payload),postJSON(EMAIL_ENDPOINT,payload)]);
+        if(webhookOk||mailOk){
+          contactMessage.textContent='Besten Dank. Wir rufen innert 2 Stunden an.';
           contactForm.reset();
           step1.classList.remove('active');
           step2.classList.add('active');
-          pushEvent({event:'lead_generated', caseType:payload.caseType, timeline:payload.timeline});
+          window.dataLayer.push({event:'lead_generated',caseType:payload.caseType,timeline:payload.timeline});
         }else{
-          contactMessage.textContent = 'Webhook und Mailer nicht erreichbar – bitte direkt anrufen: +41 79 270 04 46.';
+          contactMessage.textContent='Webhook & Mailer nicht erreichbar – bitte +41 79 270 04 46 wählen.';
         }
       });
     }
