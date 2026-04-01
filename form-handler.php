@@ -36,8 +36,14 @@ $headers[] = 'Reply-To: ' . $email;
 $headers[] = 'Content-Type: text/plain; charset=UTF-8';
 $mailResult = mail('kontakt@eigentumer-check.ch', $subject, $body, implode("\r\n", $headers));
 if ($mailResult) {
-    echo json_encode(['status' => 'ok']);
+    echo json_encode(['status' => 'ok', 'mailer' => 'smtp']);
+    return;
+}
+$logPath = __DIR__ . '/logs/lead-mails.log';
+$entry = date('c') . ' | ' . $subject . ' | ' . json_encode($data, JSON_UNESCAPED_UNICODE) . PHP_EOL;
+if (file_put_contents($logPath, $entry, FILE_APPEND) !== false) {
+    echo json_encode(['status' => 'ok', 'mailer' => 'file']);
 } else {
     http_response_code(500);
-    echo json_encode(['status' => 'error', 'message' => 'Mail send failed']);
+    echo json_encode(['status' => 'error', 'message' => 'Mail+log failed']);
 }
