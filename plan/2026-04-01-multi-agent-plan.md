@@ -1,35 +1,24 @@
 # Multi-Agent Mission Plan – 01.04.2026
 
-## Überblick
-- **Chief Product Officer (Klausi)**: Koordination, Qualitätssicherung, Deployments
-- **Swiss-Designer**: UI/UX, Designsystem, Komponentenbibliothek
-- **SEO-Researcher**: Suchintentionen, Konkurrenz, Content-Briefs
-- **Conversion-Hacker**: Rechner, CTAs, PDF-Dossier-Funnel
+## Streams & Status
+| Agent | Fokus | Status 09:40 CET |
+|-------|-------|------------------|
+| Swiss-Designer | Landingpage, Werte-Sektion, UI-Motion für Rechner | ✅ Erste Iteration live inkl. Marineblau/Gold, neue Werte-Section, Result-Animationen |
+| SEO-Researcher | Langform-Artikel für vier Silos, SERP-Signale | 🔄 4× Fachartikel (800+ Wörter) live; SERP-Scrapes folgen für Deep-Dives |
+| Conversion-Hacker | Webhook-Integration, DataLayer, Lead-Funnel | ✅ Placeholder-Webhook + DataLayer Events dokumentiert, PDF-Autoresponder-Konzept erstellt |
 
-## Aktueller Fokus (09:15 CET)
-| Stream | Status | Deliverables |
-|--------|--------|--------------|
-| Swiss-Designer | ✅ Laufend | Neue Landingpage in Marineblau/Gold, Trust-Pattern, Inter-Font, White Space, Cases |
-| SEO-Researcher | 🔄 | SERP-Board für «Tragbarkeit Pensionierung», «Hausverkauf Scheidung», «Verdichtungspotenzial» – Keyword/Intent/CTA Mapping |
-| Conversion-Hacker | ✅ Phase 1 | 3 Inline-Rechner + PDF-Dossier CTA, Multi-Step Kontaktformular |
+## Artefakte
+- `index.html` – neue Hauptseite, DataLayer, animierte Rechner
+- `silos/*/index.html` – Expertenartikel pro Silo (E-E-A-T, Zitat Lars)
+- `analytics/datalayer-events.md` – Tracking-Namensschema
+- `communications/pdf-autoresponder.md` – E-Mail- und Workflow-Konzept
 
-## Nächste Schritte
-1. **Swiss-Designer**
-   - Komponenten in einzelne Dateien überführen (Hero, KPI, Tools) → Vorbereitung für modulare Templates
-   - Assets erstellen (Logos, Texturen) in `design/2026-04-brand`
-2. **SEO-Researcher**
-   - Web-Recherche & SERP-Screenshots speichern unter `silos/research`
-   - Content-Briefs mit YMYL-Absicherung (Quellen, Gesetz) pro Silo
-3. **Conversion-Hacker**
-   - PDF-Dossier Autoresponder vorbereiten (Zapier/Form backend TBD)
-   - Tracking-Plan mit GTM Events (Rechner-CTA, Leadform Step 2)
+## Nächste Tasks
+1. **SEO-Researcher**: SERP-Snapshots + Content-Briefs (Ranking-Fahrplan) → Ablage `silos/research/`
+2. **Swiss-Designer**: Komponenten extrahieren (Hero, KPI, Values) → `components/`
+3. **Conversion-Hacker**: Backend-Integration (Make.com URL, PDF-Anhänge), GTM Events konfigurieren
 
-## Messgrössen
-- **Hero CTA CTR** Ziel 42%
-- **Lead-to-Dossier** Ziel 40%
-- **Keyword-Rankings**: Top-3 in 90 Tagen für Kern-Keywords
-
-## Blocker / Bedarf Lars
-- Zugang zu Analytics + GTM Preview
-- Freigabe für Zapier/Form backend oder eigenes API-Gateway
-- Priorisierte Inhalte (Videos, Testimonials) für Cases
+## Blocker / Needs
+- Finale Webhook-URL aus Make.com
+- E-Mail-Infrastruktur (Sendgrid/Infomaniak API-Key)
+- Zugang zu Analytics/GTM Preview
